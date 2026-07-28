@@ -1,0 +1,8 @@
+.reserva-secao{padding:80px 0;background:linear-gradient(180deg,#fff,var(--cor-fundo-suave))}
+.reserva-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:58px}
+.reserva-conteudo h1{margin-bottom:22px;font-size:clamp(2.3rem,6vw,4rem)}
+.reserva-conteudo>p{color:var(--cor-texto-secundario);font-size:1.05rem}
+.reserva-acoes{display:flex;flex-wrap:wrap;gap:13px;margin:28px 0}
+.reserva-informacoes{display:grid;grid-template-columns:1fr 1fr;gap:9px 24px;color:#425466;font-size:.92rem}
+@media(max-width:850px){.reserva-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.reserva-informacoes{grid-template-columns:1fr}}

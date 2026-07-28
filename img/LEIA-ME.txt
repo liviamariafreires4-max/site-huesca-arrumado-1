@@ -1,0 +1,19 @@
+PASTA DE IMAGENS
+
+Os arquivos HTML usam blocos visuais de placeholder.
+Para inserir imagens, substitua cada <div class="imagem-placeholder"> por uma tag <img>.
+
+Sugestões de nomes:
+- logo-hotel.png
+- fachada.jpg
+- recepcao.jpg
+- quarto-ar-individual.jpg
+- quarto-ar-duplo.jpg
+- quarto-ar-triplo.jpg
+- quarto-ventilador-individual.jpg
+- quarto-ventilador-duplo.jpg
+- quarto-ventilador-triplo.jpg
+- silvan-melo.jpg
+- parque-shopping.jpg
+- prudenshopping.jpg
+- parque-do-povo.jpg

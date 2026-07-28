@@ -1,0 +1,21 @@
+.hero{padding:76px 0;background:linear-gradient(180deg,#fff 0%,var(--cor-fundo-suave) 100%)}
+.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:58px}
+.hero-conteudo h1{margin-bottom:22px;font-size:clamp(2.5rem,6vw,4.5rem);letter-spacing:-.035em}
+.hero-texto{max-width:620px;color:var(--cor-texto-secundario);font-size:1.08rem}
+.hero-acoes{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.vantagens{padding-block:78px}
+.vantagens-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.vantagem-card{padding:26px;border:1px solid var(--cor-borda);border-radius:var(--raio);background:#fff;box-shadow:0 6px 20px rgba(9,52,94,.05)}
+.icone-texto{display:grid;width:42px;height:42px;place-items:center;margin-bottom:18px;border-radius:50%;background:var(--cor-primaria);color:#fff;font-size:.82rem;font-weight:700}
+.vantagem-card h3{margin-bottom:8px;font-size:1.05rem}
+.vantagem-card p{color:var(--cor-texto-secundario);font-size:.92rem}
+.apresentacao-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:58px;padding-block:78px}
+.apresentacao-conteudo h2{margin-bottom:20px;font-size:clamp(1.9rem,4vw,2.7rem)}
+.apresentacao-conteudo p{margin-bottom:14px;color:var(--cor-texto-secundario)}
+.link-seta{display:inline-flex;margin-top:10px;color:var(--cor-primaria);font-weight:700}
+.quartos-destaque{padding-block:78px}
+.card-acomodacao{overflow:hidden;border:1px solid var(--cor-borda);border-radius:var(--raio);background:#fff;box-shadow:0 8px 24px rgba(9,52,94,.07)}
+.card-acomodacao h3{margin-bottom:10px}
+.card-acomodacao p{min-height:78px;margin-bottom:18px;color:var(--cor-texto-secundario)}
+@media(max-width:900px){.hero-grid,.apresentacao-grid{grid-template-columns:1fr}.vantagens-grid{grid-template-columns:1fr 1fr}.hero{padding:58px 0}}
+@media(max-width:560px){.vantagens-grid{grid-template-columns:1fr}}

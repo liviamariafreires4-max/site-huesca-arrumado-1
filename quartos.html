@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quartos com ar-condicionado, ventilador ou opção econômica no Hotel Palace Huesca, em Presidente Prudente.">
+    <title>Quartos | Hotel Palace Huesca</title>
+
+    <link rel="icon" type="image/png" href="img/favicon-hotel-azul.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" href="img/favicon-hotel-branco.png" media="(prefers-color-scheme: dark)">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/quartos.css">
+
+    <!-- HOTEL-HUESCA-CARDS-ALINHADOS-V5 -->
+    <meta name="hotel-huesca-build" content="cards-alinhados-v5">
+    <style id="hotel-huesca-cards-alinhados-v5">
+        /*
+         * Mantém todos os cards da mesma linha com a mesma altura.
+         * O espaço excedente fica acima da linha divisória.
+         */
+        .quartos-grid {
+            align-items: stretch !important;
+        }
+
+        .quarto-card {
+            display: flex !important;
+            flex-direction: column !important;
+            align-self: stretch !important;
+            height: 100% !important;
+        }
+
+        .quarto-card-conteudo {
+            display: flex !important;
+            flex: 1 1 auto !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            min-height: 0 !important;
+        }
+
+        .quarto-rodape {
+            margin-top: auto !important;
+        }
+
+        @media (max-width: 620px) {
+            .quarto-card {
+                height: auto !important;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <header class="site-header">
+        <div class="cor-fundo-secundario">
+            <nav class="container" aria-label="Navegação principal">
+                <a href="index.html" id="logo" aria-label="Hotel Palace Huesca — página inicial">
+                    <span class="logo-imagem-placeholder" aria-hidden="true">
+                        <img src="img/logo-hotel.png" alt="Logo do Hotel Palace Huesca">
+                    </span>
+                    <span class="logo-texto">Hotel Palace Huesca</span>
+                </a>
+
+                <ul id="menu-desktop">
+                    <li><a href="index.html">Nosso Hotel</a></li>
+                    <li><a href="quartos.html" aria-current="page" class="ativo">Quartos</a></li>
+                    <li><a href="localizacao.html">Localização</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="atendimento.html">Atendimento</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+
+                <a class="nav-reserva" href="reserva.html">Reservar</a>
+
+                <button
+                    id="menu-button"
+                    type="button"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    aria-controls="menu-mobile-container"
+                >
+                    <span aria-hidden="true">☰</span>
+                </button>
+
+                <div id="menu-mobile-container">
+                    <ul id="menu-mobile">
+                        <li><a href="index.html">Nosso Hotel</a></li>
+                        <li><a href="quartos.html" aria-current="page" class="ativo">Quartos</a></li>
+                        <li><a href="localizacao.html">Localização</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="atendimento.html">Atendimento</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="reserva.html">Reservar</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="cabecalho-pagina">
+            <div class="container">
+                <p class="sobretitulo">Acomodações</p>
+                <h1>Nossos quartos</h1>
+                <p>Todos os quartos possuem Wi-Fi rápido, TV, roupa de cama, toalhas e limpeza diária.</p>
+            </div>
+        </section>
+
+        <section class="container conteudo-pagina">
+            <div class="aviso-info">
+                <strong>Importante:</strong> confirme preço, disponibilidade e composição das camas no momento da reserva.
+            </div>
+
+            <div class="filtros" aria-label="Filtrar quartos">
+                <button class="filtro-btn ativo" data-filter="todos">Todos</button>
+                <button class="filtro-btn" data-filter="ar">Com ar-condicionado</button>
+                <button class="filtro-btn" data-filter="ventilador">Com ventilador</button>
+                <button class="filtro-btn" data-filter="economico">Econômicos</button>
+            </div>
+
+            <div class="quartos-grid">
+                <!-- QUARTOS COM AR-CONDICIONADO -->
+
+                <!-- Quarto Individual com ar-condicionado -->
+                <article class="quarto-card" data-categoria="ar">
+                    <div class="imagem-placeholder imagem-placeholder-card">
+                        <span>INSIRA A FOTO DESTE QUARTO</span>
+                    </div>
+
+                    <div class="quarto-card-conteudo">
+                        <span class="etiqueta">Ar-condicionado</span>
+                        <h2>Quarto Individual</h2>
+                        <p>
+                            Acomodação confortável para uma pessoa, indicada para viagens a trabalho ou estadias individuais. Possui ambiente climatizado e estrutura prática para descanso.
+                        </p>
+
+                        <ul class="lista-detalhes">
+                            <li>1 cama de solteiro</li>
+                            <li>Banheiro privativo com chuveiro</li>
+                            <li>Ar-condicionado</li>
+                            <li>Wi-Fi rápido</li>
+                            <li>TV</li>
+                            <li>Frigobar</li>
+                            <li>Roupa de cama e toalhas</li>
+                            <li>Produtos de banho gratuitos</li>
+                            <li>Limpeza diária</li>
+                        </ul>
+
+                        <div class="quarto-rodape">
+                            <strong class="preco">
+                                R$ 190,00
+                                <br>
+                                <small>Adicional para PET: R$ 29,00</small>
+                            </strong>
+                            <a class="btn btn-primario btn-pequeno" href="quarto-individual-ar-condicionado.html">Ver detalhes</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Estúdio Standard com ar-condicionado -->
+                <article class="quarto-card" data-categoria="ar">
+                    <div class="imagem-placeholder imagem-placeholder-card">
+                        <span>INSIRA A FOTO DESTE QUARTO</span>
+                    </div>
+
+                    <div class="quarto-card-conteudo">
+                        <span class="etiqueta">Ar-condicionado</span>
+                        <span class="etiqueta">Mais escolhido pelos hóspedes</span>
+                        <h2>Estúdio Standard</h2>
+                        <p>
+                            Suíte climatizada para casal, com cama de casal e espaço reservado para refeições. É uma opção equilibrada para quem procura conforto e praticidade durante a estadia.
+                        </p>
+
+                        <ul class="lista-detalhes">
+                            <li>1 cama de casal</li>
+                            <li>Suíte com banheiro privativo</li>
+                            <li>Ar-condicionado</li>
+                            <li>Wi-Fi rápido</li>
+                            <li>TV</li>
+                            <li>Frigobar</li>
+                            <li>Área para refeições</li>
+                            <li>Roupa de cama e toalhas</li>
+                            <li>Produtos de banho gratuitos</li>
+                            <li>Limpeza diária</li>
+                        </ul>
+
+                        <div class="quarto-rodape">
+                            <strong class="preco">
+                                R$ 190,00
+                                <br>
+                                <small>Adicional para PET: R$ 29,00</small>
+                            </strong>
+                            <a class="btn btn-primario btn-pequeno" href="estudio-standard.html">Ver detalhes</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Quarto Duplo com ar-condicionado -->
+                <article class="quarto-card" data-categoria="ar">
+                    <div class="imagem-placeholder imagem-placeholder-card">
+                        <span>INSIRA A FOTO DESTE QUARTO</span>
+                    </div>
+
+                    <div class="quarto-card-conteudo">
+                        <span class="etiqueta">Ar-condicionado</span>
+                        <h2>Quarto Duplo</h2>
+                        <p>
+                            Preparado para acomodar duas pessoas com conforto, este quarto climatizado oferece uma estrutura funcional para amigos, familiares ou colegas de viagem.
+                        </p>
+
+                        <ul class="lista-detalhes">
+                            <li>Capacidade para 2 hóspedes</li>
+                            <li>Banheiro privativo com chuveiro</li>
+                            <li>Ar-condicionado</li>
+                            <li>Wi-Fi rápido</li>
+                            <li>TV</li>
+                            <li>Frigobar</li>
+                            <li>Guarda-roupa ou armário</li>
+                            <li>Roupa de cama e toalhas</li>
+                            <li>Produtos de banho gratuitos</li>
+                            <li>Limpeza diária</li>
+                        </ul>
+
+                        <div class="quarto-rodape">
+                            <strong class="preco">
+                                R$ 230,00
+                                <br>
+                                <small>Adicional para PET: R$ 29,00</small>
+                            </strong>
+                            <a class="btn btn-primario btn-pequeno" href="quarto-duplo-ar-condicionado.html">Ver detalhes</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Quarto Triplo com ar-condicionado -->
+                <article class="quarto-card" data-categoria="ar">
+                    <div class="imagem-placeholder imagem-placeholder-card">
+                        <span>INSIRA A FOTO DESTE QUARTO</span>
+                    </div>
+
+                    <div class="quarto-card-conteudo">
+                        <span class="etiqueta">Ar-condicionado</span>
+                        <h2>Quarto Triplo</h2>
+                        <p>
+                            Uma alternativa espaçosa para até três hóspedes, com climatização e comodidades adequadas para pequenas famílias ou grupos que desejam permanecer juntos.
+                        </p>
+
+                        <ul class="lista-detalhes">
+                            <li>Capacidade para 3 hóspedes</li>
+                            <li>Banheiro privativo com chuveiro</li>
+                            <li>Ar-condicionado</li>
+                            <li>Wi-Fi rápido</li>
+                            <li>TV</li>
+                            <li>Frigobar</li>
+                            <li>Área para refeições</li>
+                            <li>Roupa de cama e toalhas</li>
+                            <li>Produtos de banho gratuitos</li>
+                            <li>Limpeza diária</li>
+                        </ul>
+
+                        <div class="quarto-rodape">
+                            <strong class="preco">
+                                R$ 340,00
+                                <br>
+                                <small>Adicional para PET: R$ 29,00</small>
+                            </strong>
+                            <a class="btn btn-primario btn-pequeno" href="quarto-triplo-ar-condicionado.html">Ver detalhes</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Quarto Quádruplo com ar-condicionado -->
+                <article class="quarto-card" data-categoria="ar">
+                    <div class="imagem-placeholder imagem-placeholder-card">
+                        <span>INSIRA A FOTO DESTE QUARTO</span>
+                    </div>
+
+                    <div class="quarto-card-conteudo">
+                        <span class="etiqueta">Ar-condicionado</span>
+                        <h2>Quarto Quádruplo</h2>
+                        <p>
+                            Desenvolvido para famílias ou grupos de até quatro pessoas, reúne maior capacidade de acomodação, ambiente climatizado e os itens necessários para uma estadia confortável.
+                        </p>
+
+                        <ul class="lista-detalhes">
+                            <li>Capacidade para 4 hóspedes</li>
+                            <li>Banheiro privativo com chuveiro</li>
+                            <li>Ar-condicionado</li>
+                            <li>Wi-Fi rápido</li>
+                            <li>TV</li>
+                            <li>Frigobar</li>
+                            <li>Guarda-roupa ou armário</li>
+                            <li>Roupa de cama e toalhas</li>
+                            <li>Produtos de banho gratuitos</li>
+                            <li>Limpeza diária</li>
+                        </ul>
+
+                        <div class="quarto-rodape">
+                            <strong class="preco">
+                                R$ 420,00
+                                <br>
+                                <small>Adicional para PET: R$ 29,00</small>
+                            </strong>
+                            <a class="btn btn-primario btn-pequeno" href="quarto-quadruplo-ar-condicionado.html">Ver detalhes</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- QUARTOS COM VENTILADOR -->
+
+                <!-- Quarto Individual com ventilador -->
+                <article class="quarto-card" data-categoria="ventilador">
+                    <div class="imagem-placeholder imagem-placeholder-card">
+                        <span>INSIRA A FOTO DESTE QUARTO</span>
+                    </div>
+
+                    <div class="quarto-card-conteudo">
+                        <span class="etiqueta">Ventilador</span>
+                        <h2>Quarto Individual</h2>
+                        <p>
+                            Opção funcional para uma pessoa, com cama de solteiro e ventilador. É indicada para quem busca uma estadia simples, organizada e com bom custo-benefício.
+                        </p>
+
+                        <ul class="lista-detalhes">
+                            <li>1 cama de solteiro</li>
+                            <li>Banheiro privativo com chuveiro</li>
+                            <li>Ventilador</li>
+                            <li>Wi-Fi rápido</li>
+                            <li>TV</li>
+                            <li>Roupa de cama e toalhas</li>
+                            <li>Produtos de banho gratuitos</li>
+                            <li>Limpeza diária</li>
+                        </ul>
+
+                        <div class="quarto-rodape">
+                            <strong class="preco">
+
+                                R$ 130,00
+
+                                <br>
+
+                                <small>Adicional para PET: R$ 29,00</small>
+
+                            </strong>
+                            <a class="btn btn-primario btn-pequeno" href="quarto-individual-ventilador.html">Ver detalhes</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Quarto Duplo com ventilador -->
+                <article class="quarto-card" data-categoria="ventilador">
+                    <div class="imagem-placeholder imagem-placeholder-card">
+                        <span>INSIRA A FOTO DESTE QUARTO</span>
+                    </div>
+
+                    <div class="quarto-card-conteudo">
+                        <span class="etiqueta">Ventilador</span>
+                        <h2>Quarto Duplo</h2>
+                        <p>
+                            Acomodação prática para duas pessoas, com ventilação e os principais itens para uma estadia tranquila. É adequada para viagens curtas ou compromissos na região central.
+                        </p>
+
+                        <ul class="lista-detalhes">
+                            <li>Capacidade para 2 hóspedes</li>
+                            <li>Banheiro privativo com chuveiro</li>
+                            <li>Ventilador</li>
+                            <li>Wi-Fi rápido</li>
+                            <li>TV</li>
+                            <li>Roupa de cama e toalhas</li>
+                            <li>Produtos de banho gratuitos</li>
+                            <li>Limpeza diária</li>
+                        </ul>
+
+                        <div class="quarto-rodape">
+                            <strong class="preco">
+
+                                R$ 195,00
+
+                                <br>
+
+                                <small>Adicional para PET: R$ 29,00</small>
+
+                            </strong>
+                            <a class="btn btn-primario btn-pequeno" href="quarto-duplo-ventilador.html">Ver detalhes</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Quarto Triplo com ventilador -->
+                <article class="quarto-card" data-categoria="ventilador">
+                    <div class="imagem-placeholder imagem-placeholder-card">
+                        <span>INSIRA A FOTO DESTE QUARTO</span>
+                    </div>
+
+                    <div class="quarto-card-conteudo">
+                        <span class="etiqueta">Ventilador</span>
+                        <h2>Quarto Triplo</h2>
+                        <p>
+                            Indicado para até três hóspedes, oferece uma configuração mais ampla sem perder a proposta de economia. É uma escolha conveniente para famílias pequenas ou grupos.
+                        </p>
+
+                        <ul class="lista-detalhes">
+                            <li>Capacidade para 3 hóspedes</li>
+                            <li>Banheiro privativo com chuveiro</li>
+                            <li>Ventilador</li>
+                            <li>Wi-Fi rápido</li>
+                            <li>TV</li>
+                            <li>Roupa de cama e toalhas</li>
+                            <li>Produtos de banho gratuitos</li>
+                            <li>Limpeza diária</li>
+                        </ul>
+
+                        <div class="quarto-rodape">
+                            <strong class="preco">
+
+                                R$ 285,00
+
+                                <br>
+
+                                <small>Adicional para PET: R$ 29,00</small>
+
+                            </strong>
+                            <a class="btn btn-primario btn-pequeno" href="quarto-triplo-ventilador.html">Ver detalhes</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Quarto Quádruplo com ventilador -->
+                <article class="quarto-card" data-categoria="ventilador">
+                    <div class="imagem-placeholder imagem-placeholder-card">
+                        <span>INSIRA A FOTO DESTE QUARTO</span>
+                    </div>
+
+                    <div class="quarto-card-conteudo">
+                        <span class="etiqueta">Ventilador</span>
+                        <h2>Quarto Quádruplo</h2>
+                        <p>
+                            Alternativa para até quatro pessoas que priorizam espaço e economia. O quarto atende famílias e grupos que desejam compartilhar a mesma acomodação.
+                        </p>
+
+                        <ul class="lista-detalhes">
+                            <li>Capacidade para 4 hóspedes</li>
+                            <li>Banheiro privativo com chuveiro</li>
+                            <li>Ventilador</li>
+                            <li>Wi-Fi rápido</li>
+                            <li>TV</li>
+                            <li>Roupa de cama e toalhas</li>
+                            <li>Produtos de banho gratuitos</li>
+                            <li>Limpeza diária</li>
+                        </ul>
+
+                        <div class="quarto-rodape">
+                            <strong class="preco">
+
+                                R$ 340,00
+
+                                <br>
+
+                                <small>Adicional para PET: R$ 29,00</small>
+
+                            </strong>
+                            <a class="btn btn-primario btn-pequeno" href="quarto-quadruplo-ventilador.html">Ver detalhes</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- QUARTOS ECONÔMICOS -->
+
+                <!-- Quarto Econômico Individual -->
+                <article class="quarto-card" data-categoria="economico">
+                    <div class="imagem-placeholder imagem-placeholder-card">
+                        <span>INSIRA A FOTO DESTE QUARTO</span>
+                    </div>
+
+                    <div class="quarto-card-conteudo">
+                        <span class="etiqueta">Econômico</span>
+                        <h2>Quarto Econômico Individual</h2>
+                        <p>
+                            Acomodação simples para uma pessoa, voltada a quem procura somente o essencial para descansar com uma diária mais acessível.
+                        </p>
+
+                        <ul class="lista-detalhes">
+                            <li>1 cama de solteiro</li>
+                            <li>Ventilador</li>
+                            <li>TV</li>
+                            <li>Roupa de cama e toalhas</li>
+                            <li>Limpeza diária</li>
+                        </ul>
+
+                        <div class="quarto-rodape">
+                            <strong class="preco">
+
+                                R$ 95,00
+
+                                <br>
+
+                                <small>Adicional para PET: R$ 29,00</small>
+
+                            </strong>
+                            <a class="btn btn-primario btn-pequeno" href="quarto-economico-individual.html">Ver detalhes</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Quarto Econômico Duplo -->
+                <article class="quarto-card" data-categoria="economico">
+                    <div class="imagem-placeholder imagem-placeholder-card">
+                        <span>INSIRA A FOTO DESTE QUARTO</span>
+                    </div>
+
+                    <div class="quarto-card-conteudo">
+                        <span class="etiqueta">Econômico</span>
+                        <h2>Quarto Econômico Duplo</h2>
+                        <p>
+                            Opção básica para duas pessoas, com estrutura objetiva e preço reduzido. É adequada para estadias rápidas e hóspedes que não necessitam de comodidades adicionais.
+                        </p>
+
+                        <ul class="lista-detalhes">
+                            <li>Capacidade para 2 hóspedes</li>
+                            <li>Ventilador</li>
+                            <li>TV</li>
+                            <li>Roupa de cama e toalhas</li>
+                            <li>Limpeza diária</li>
+                        </ul>
+
+                        <div class="quarto-rodape">
+                            <strong class="preco">
+
+                                R$ 170,00
+
+                                <br>
+
+                                <small>Adicional para PET: R$ 29,00</small>
+
+                            </strong>
+                            <a class="btn btn-primario btn-pequeno" href="quarto-economico-duplo.html">Ver detalhes</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-reserva">
+            <div class="container cta-reserva-conteudo">
+                <div>
+                    <h2>Encontre a acomodação adequada para sua estadia</h2>
+                    <p>Consulte a disponibilidade diretamente com a recepção.</p>
+                </div>
+                <a class="btn btn-claro" href="reserva.html">Fazer uma reserva</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <section class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo-placeholder">
+                        <img src="img/logo-hotel-sem-fundo.png" alt="Logo do Hotel Palace Huesca">
+                    </div>
+                    <p class="missao">
+                        Hospitalidade, simplicidade, limpeza e localização estratégica no centro de Presidente Prudente.
+                    </p>
+                    <div class="social-links" aria-label="Redes sociais">
+                        <a href="#" aria-label="Adicionar endereço do Facebook">Facebook</a>
+                        <a href="#" aria-label="Adicionar endereço do Instagram">Instagram</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h2>Navegação</h2>
+                    <ul>
+                        <li><a href="index.html">Nosso Hotel</a></li>
+                        <li><a href="quartos.html">Quartos</a></li>
+                        <li><a href="localizacao.html">Localização</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="atendimento.html">Atendimento</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h2>Contato e endereço</h2>
+                    <ul>
+                        <li><a href="tel:+5518998141622">(18) 99814-1622</a></li>
+                        <li>
+                            <a
+                                href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20Hotel%20Palace%20Huesca!%20Gostaria%20de%20consultar%20disponibilidade%20e%20fazer%20uma%20reserva."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >Reservar pelo WhatsApp</a>
+                        </li>
+                        <li>
+                            Avenida Brasil, nº 550<br>
+                            Centro — Presidente Prudente/SP
+                        </li>
+                        <li>Recepção 24 horas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hotel Palace Huesca. Todos os direitos reservados.</p>
+                <p>Huesca Palace Hotel LTDA — CNPJ 55.360.507/0001-48</p>
+            </div>
+        </section>
+    </footer>
+
+    <script src="js/menu.js"></script>
+    <script src="js/quartos.js"></script>
+</body>
+</html>

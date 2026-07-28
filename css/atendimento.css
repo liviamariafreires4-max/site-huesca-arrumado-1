@@ -1,0 +1,9 @@
+.atendimento-grid{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:54px}
+.atendimento-conteudo h2{margin-bottom:20px;font-size:2rem}
+.atendimento-conteudo>p{margin-bottom:16px;color:var(--cor-texto-secundario)}
+.contato-box{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:30px;padding:24px;border-radius:var(--raio);background:var(--cor-primaria-clara)}
+.contato-box>a:not(.btn){color:var(--cor-primaria);font-size:1.35rem;font-weight:700}
+.galeria-placeholders{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.galeria-placeholders .imagem-placeholder{min-height:210px}
+@media(max-width:820px){.atendimento-grid{grid-template-columns:1fr}}
+@media(max-width:500px){.galeria-placeholders{grid-template-columns:1fr}}
