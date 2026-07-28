@@ -8,3 +8,6 @@
 .valores-grid p{color:var(--cor-texto-secundario);font-size:.9rem}
 @media(max-width:900px){.sobre-grid{grid-template-columns:1fr}.valores-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.valores-grid{grid-template-columns:1fr}.retrato-placeholder{min-height:320px}}
+.borda-img{
+    border-radius: 40px;
+}

@@ -8,12 +8,12 @@
 
     <link rel="icon" type="image/png" href="img/favicon-hotel-azul.png" media="(prefers-color-scheme: light)">
     <link rel="icon" type="image/png" href="img/favicon-hotel-branco.png" media="(prefers-color-scheme: dark)">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/localizacao.css">
+    <link rel="stylesheet" href="css/cards-hover.css">
 
     <style>
         .mapa-interativo {
@@ -46,9 +46,7 @@
     <div class="cor-fundo-secundario">
         <nav class="container" aria-label="Navegação principal">
             <a href="index.html" id="logo" aria-label="Hotel Palace Huesca — página inicial">
-                <span class="logo-imagem-placeholder" aria-hidden="true">
-                    <img src="img/logo-hotel.png" alt="">
-                </span>
+                <span class="logo-imagem-placeholder" aria-hidden="true"><img src="img/logo-hotel.png" alt=""></span>
                 <span class="logo-texto">Hotel Palace Huesca</span>
             </a>
 
@@ -104,25 +102,13 @@
                 O Hotel Palace Huesca está em uma localização privilegiada no centro de Presidente Prudente, com fácil acesso à Praça Nove de Julho, à Catedral de São Sebastião e ao tradicional Calçadão. A região reúne importantes pontos históricos e culturais da cidade, além de um movimentado centro comercial, com lojas, restaurantes, bancos e diversos serviços para maior comodidade dos hóspedes.
             </p>
 
-            <a
-                class="btn btn-primario"
-                href="https://www.google.com/maps/search/?api=1&query=Hotel+Palace+Huesca%2C+Avenida+Brasil%2C+550%2C+Centro%2C+Presidente+Prudente%2C+SP"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Abrir a localização do Hotel Palace Huesca no Google Maps"
-            >
+            <a class="btn btn-primario" href="https://www.google.com/maps/search/?api=1&query=Hotel+Palace+Huesca%2C+Avenida+Brasil%2C+550%2C+Centro%2C+Presidente+Prudente%2C+SP" target="_blank" rel="noopener noreferrer" aria-label="Abrir a localização do Hotel Palace Huesca no Google Maps">
                 Abrir no Google Maps
             </a>
         </div>
 
         <div class="mapa-interativo">
-            <iframe
-                src="https://www.google.com/maps?q=Hotel+Palace+Huesca%2C+Avenida+Brasil%2C+550%2C+Centro%2C+Presidente+Prudente%2C+SP&output=embed"
-                title="Mapa interativo com a localização do Hotel Palace Huesca"
-                loading="lazy"
-                allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+            <iframe src="https://www.google.com/maps?q=Hotel+Palace+Huesca%2C+Avenida+Brasil%2C+550%2C+Centro%2C+Presidente+Prudente%2C+SP&output=embed" title="Mapa interativo com a localização do Hotel Palace Huesca" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
@@ -136,39 +122,45 @@
 
             <div class="cards-grid cards-grid-3">
                 <article class="local-card">
-                    <div class=" imagem-placeholder-card">
-                        <span><img src="img/praca-9-de-julho.jpg" alt="Praça Nove de Julho"></span>
-                    </div>
-                    <div class="card-conteudo">
-                        <h3>Praça Nove de Julho</h3>
-                        <p>
-                            Um dos espaços mais tradicionais do centro de Presidente Prudente, cercado por construções históricas, comércio e serviços. É um ponto agradável para conhecer parte da história e do cotidiano da cidade.
-                        </p>
-                    </div>
+                    <a class="local-card-link" href="https://www.google.com/maps/search/?api=1&query=Pra%C3%A7a+Nove+de+Julho%2C+Presidente+Prudente%2C+SP" target="_blank" rel="noopener noreferrer" aria-label="Abrir a Praça Nove de Julho no Google Maps">
+                        <div class="card-imagem-hover">
+                            <img class="imagem-principal" src="img/cards/praca-nove-julho-1.jpg" alt="Praça Nove de Julho — imagem principal">
+                            <img class="imagem-secundaria" src="img/cards/praca-nove-julho-2.jpg" alt="Praça Nove de Julho — imagem secundária" loading="lazy">
+                        </div>
+                        <div class="card-conteudo">
+                            <h3>Praça Nove de Julho</h3>
+                            <p>Um dos espaços mais tradicionais do centro de Presidente Prudente, cercado por construções históricas, comércio e serviços. É um ponto agradável para conhecer parte da história e do cotidiano da cidade.</p>
+                            <span class="maps-destino">Ver no Google Maps</span>
+                        </div>
+                    </a>
                 </article>
 
                 <article class="local-card">
-                    <div class="imagem-placeholder-card">
-                        <span><img src="img/Catedral-de-São-Sebastião.jpeg" alt="Catedral de São Sebastião"></span>
-                    </div>
-                    <div class="card-conteudo">
-                        <h3>Catedral de São Sebastião</h3>
-                        <p>
-                            Localizada na região central, a catedral é uma das principais referências religiosas e arquitetônicas de Presidente Prudente, integrando o conjunto histórico e cultural próximo à Praça Nove de Julho.
-                        </p>
-                    </div>
+                    <a class="local-card-link" href="https://www.google.com/maps/search/?api=1&query=Catedral+de+S%C3%A3o+Sebasti%C3%A3o%2C+Presidente+Prudente%2C+SP" target="_blank" rel="noopener noreferrer" aria-label="Abrir a Catedral de São Sebastião no Google Maps">
+                        <div class="card-imagem-hover">
+                            <img class="imagem-principal" src="img/cards/catedral-sao-sebastiao-1.jpg" alt="Catedral de São Sebastião — imagem principal">
+                            <img class="imagem-secundaria" src="img/cards/catedral-sao-sebastiao-2.jpg" alt="Catedral de São Sebastião — imagem secundária" loading="lazy">
+                        </div>
+                        <div class="card-conteudo">
+                            <h3>Catedral de São Sebastião</h3>
+                            <p>Localizada na região central, a catedral é uma das principais referências religiosas e arquitetônicas de Presidente Prudente, integrando o conjunto histórico e cultural próximo à Praça Nove de Julho.</p>
+                            <span class="maps-destino">Ver no Google Maps</span>
+                        </div>
+                    </a>
                 </article>
 
                 <article class="local-card">
-                    <div class="imagem-placeholder-card">
-                        <span><img src="img/Calçadão-e-centro-comercial.jpeg" alt="Calçadão e centro comercial"></span>
-                    </div>
-                    <div class="card-conteudo">
-                        <h3>Calçadão e centro comercial</h3>
-                        <p>
-                            O tradicional Calçadão concentra lojas, restaurantes, bancos, farmácias e diversos serviços. A proximidade facilita compras, refeições e atividades do dia a dia sem a necessidade de longos deslocamentos.
-                        </p>
-                    </div>
+                    <a class="local-card-link" href="https://www.google.com/maps/search/?api=1&query=Cal%C3%A7ad%C3%A3o+de+Presidente+Prudente%2C+SP" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Calçadão de Presidente Prudente no Google Maps">
+                        <div class="card-imagem-hover">
+                            <img class="imagem-principal" src="img/cards/calcadao-centro-1.jpg" alt="Calçadão e centro comercial — imagem principal">
+                            <img class="imagem-secundaria" src="img/cards/calcadao-centro-2.jpg" alt="Calçadão e centro comercial — imagem secundária" loading="lazy">
+                        </div>
+                        <div class="card-conteudo">
+                            <h3>Calçadão e centro comercial</h3>
+                            <p>O tradicional Calçadão concentra lojas, restaurantes, bancos, farmácias e diversos serviços. A proximidade facilita compras, refeições e atividades do dia a dia sem a necessidade de longos deslocamentos.</p>
+                            <span class="maps-destino">Ver no Google Maps</span>
+                        </div>
+                    </a>
                 </article>
             </div>
         </div>
@@ -179,9 +171,7 @@
     <section class="container">
         <div class="footer-grid">
             <div class="footer-col">
-                <div class="footer-logo-placeholder">
-                    <img src="img/logo-hotel-sem-fundo.png" alt="Logo do Hotel Palace Huesca">
-                </div>
+                <div class="footer-logo-placeholder"><img src="img/logo-hotel-sem-fundo.png" alt="Logo do Hotel Palace Huesca"></div>
                 <p class="missao">Hospitalidade, simplicidade, limpeza e localização estratégica no centro de Presidente Prudente.</p>
                 <div class="social-links" aria-label="Redes sociais">
                     <a href="#" aria-label="Adicionar endereço do Facebook">Facebook</a>
@@ -205,11 +195,7 @@
                 <h2>Contato e endereço</h2>
                 <ul>
                     <li><a href="tel:+5518998141622">(18) 99814-1622</a></li>
-                    <li>
-                        <a href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20Hotel%20Palace%20Huesca!%20Gostaria%20de%20consultar%20disponibilidade%20e%20fazer%20uma%20reserva." target="_blank" rel="noopener noreferrer">
-                            Reservar pelo WhatsApp
-                        </a>
-                    </li>
+                    <li><a href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20Hotel%20Palace%20Huesca!%20Gostaria%20de%20consultar%20disponibilidade%20e%20fazer%20uma%20reserva." target="_blank" rel="noopener noreferrer">Reservar pelo WhatsApp</a></li>
                     <li>Avenida Brasil, nº 550<br>Centro — Presidente Prudente/SP</li>
                     <li>Recepção 24 horas</li>
                 </ul>
@@ -222,7 +208,6 @@
         </div>
     </section>
 </footer>
-
 <script src="js/menu.js"></script>
 </body>
 </html>

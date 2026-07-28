@@ -6,30 +6,30 @@
     <meta name="description" content="Hotel Palace Huesca no centro de Presidente Prudente, com café da manhã, Wi-Fi gratuito, estacionamento e recepção 24 horas.">
     <title>Hotel Palace Huesca | Presidente Prudente</title>
 
-    <link rel="icon" type="image/png" href="img/favicon-hotel-azul.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/png" href="img/favicon-hotel-branco.png" media="(prefers-color-scheme: dark)">
-
+    <link rel="icon" type="image/png" href="img/logo-hotel.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" href="img/logo-hotel-sem-fundo.png" media="(prefers-color-scheme: dark)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/cards-hover.css">
 </head>
 <body>
 <header class="site-header">
     <div class="cor-fundo-secundario">
         <nav class="container" aria-label="Navegação principal">
             <a href="index.html" id="logo" aria-label="Hotel Palace Huesca — página inicial">
-                <span class="logo-imagem-placeholder" aria-hidden="true"><img src="img/logo-hotel.png" alt="logo"></span>
+                <span class="logo-imagem-placeholder" aria-hidden="true"><img src="img/logo-hotel.png" alt=""></span>
                 <span class="logo-texto">Hotel Palace Huesca</span>
             </a>
             <ul id="menu-desktop">
                 <li><a href="index.html" aria-current="page" class="ativo">Nosso Hotel</a></li>
-<li><a href="quartos.html">Quartos</a></li>
-<li><a href="localizacao.html">Localização</a></li>
-<li><a href="sobre.html">Sobre Nós</a></li>
-<li><a href="atendimento.html">Atendimento</a></li>
-<li><a href="faq.html">FAQ</a></li>
+                <li><a href="quartos.html">Quartos</a></li>
+                <li><a href="localizacao.html">Localização</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="atendimento.html">Atendimento</a></li>
+                <li><a href="faq.html">FAQ</a></li>
             </ul>
             <a class="nav-reserva" href="reserva.html">Reservar</a>
             <button id="menu-button" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile-container">
@@ -38,17 +38,18 @@
             <div id="menu-mobile-container">
                 <ul id="menu-mobile">
                     <li><a href="index.html" aria-current="page" class="ativo">Nosso Hotel</a></li>
-<li><a href="quartos.html">Quartos</a></li>
-<li><a href="localizacao.html">Localização</a></li>
-<li><a href="sobre.html">Sobre Nós</a></li>
-<li><a href="atendimento.html">Atendimento</a></li>
-<li><a href="faq.html">FAQ</a></li>
+                    <li><a href="quartos.html">Quartos</a></li>
+                    <li><a href="localizacao.html">Localização</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="atendimento.html">Atendimento</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li><a href="reserva.html">Reservar</a></li>
                 </ul>
             </div>
         </nav>
     </div>
 </header>
+
 <main>
     <section class="hero">
         <div class="container hero-grid">
@@ -95,28 +96,72 @@
 
     <section class="container quartos-destaque" aria-labelledby="titulo-quartos">
         <div class="secao-cabecalho secao-cabecalho-com-acao">
-            <div><p class="sobretitulo">Acomodações</p><h2 id="titulo-quartos">Quartos para diferentes necessidades</h2></div>
+            <div>
+                <p class="sobretitulo">Acomodações</p>
+                <h2 id="titulo-quartos">Quartos para diferentes necessidades</h2>
+            </div>
             <a class="btn btn-secundario" href="quartos.html">Ver todos os quartos</a>
         </div>
+
         <div class="cards-grid cards-grid-3">
-            <article class="card-acomodacao"><div class="imagem-placeholder imagem-placeholder-card"><span>FOTO DO QUARTO</span></div><div class="card-conteudo"><span class="etiqueta">Ar-condicionado</span><h3>Quarto Individual</h3><p>Wi-Fi rápido, TV, roupa de cama, toalhas e limpeza diária.</p><strong class="preco">R$ 190,00</strong></div></article>
-            <article class="card-acomodacao"><div class="imagem-placeholder imagem-placeholder-card"><span>FOTO DO QUARTO</span></div><div class="card-conteudo"><span class="etiqueta">Ar-condicionado</span><h3>Quarto Duplo</h3><p>Ambiente confortável para casais e viajantes a trabalho.</p><strong class="preco">R$ 230,00</strong></div></article>
-            <article class="card-acomodacao"><div class="imagem-placeholder imagem-placeholder-card"><span>FOTO DO QUARTO</span></div><div class="card-conteudo"><span class="etiqueta">Ar-condicionado</span><h3>Quarto Triplo</h3><p>Opção para até três hóspedes, com comodidades essenciais.</p><strong class="preco">R$ 340,00</strong></div></article>
+            <article class="card-acomodacao" tabindex="0">
+                <div class="card-imagem-hover">
+                    <img class="imagem-principal" src="img/cards/quarto-individual-1.jpg" alt="Quarto Individual — imagem principal">
+                    <img class="imagem-secundaria" src="img/cards/quarto-individual-2.jpg" alt="Quarto Individual — imagem secundária" loading="lazy">
+                </div>
+                <div class="card-conteudo">
+                    <span class="etiqueta">Ar-condicionado</span>
+                    <h3>Quarto Individual</h3>
+                    <p>Wi-Fi rápido, TV, roupa de cama, toalhas e limpeza diária.</p>
+                    <strong class="preco">R$ 190,00</strong>
+                </div>
+            </article>
+
+            <article class="card-acomodacao" tabindex="0">
+                <div class="card-imagem-hover">
+                    <img class="imagem-principal" src="img/cards/quarto-duplo-1.jpg" alt="Quarto Duplo — imagem principal">
+                    <img class="imagem-secundaria" src="img/cards/quarto-duplo-2.jpg" alt="Quarto Duplo — imagem secundária" loading="lazy">
+                </div>
+                <div class="card-conteudo">
+                    <span class="etiqueta">Ar-condicionado</span>
+                    <h3>Quarto Duplo</h3>
+                    <p>Ambiente confortável para casais e viajantes a trabalho.</p>
+                    <strong class="preco">R$ 230,00</strong>
+                </div>
+            </article>
+
+            <article class="card-acomodacao" tabindex="0">
+                <div class="card-imagem-hover">
+                    <img class="imagem-principal" src="img/cards/quarto-triplo-1.jpg" alt="Quarto Triplo — imagem principal">
+                    <img class="imagem-secundaria" src="img/cards/quarto-triplo-2.jpg" alt="Quarto Triplo — imagem secundária" loading="lazy">
+                </div>
+                <div class="card-conteudo">
+                    <span class="etiqueta">Ar-condicionado</span>
+                    <h3>Quarto Triplo</h3>
+                    <p>Opção para até três hóspedes, com comodidades essenciais.</p>
+                    <strong class="preco">R$ 340,00</strong>
+                </div>
+            </article>
         </div>
     </section>
 
     <section class="cta-reserva">
         <div class="container cta-reserva-conteudo">
-            <div><p class="sobretitulo sobretitulo-claro">Atendimento direto</p><h2>Vagas limitadas. Reserve hoje e evite imprevistos.</h2><p>Consulte disponibilidade, valores e configuração dos quartos pelo WhatsApp.</p></div>
+            <div>
+                <p class="sobretitulo sobretitulo-claro">Atendimento direto</p>
+                <h2>Vagas limitadas. Reserve hoje e evite imprevistos.</h2>
+                <p>Consulte disponibilidade, valores e configuração dos quartos pelo WhatsApp.</p>
+            </div>
             <a class="btn btn-claro" href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20Hotel%20Palace%20Huesca!%20Gostaria%20de%20consultar%20disponibilidade%20e%20fazer%20uma%20reserva." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
         </div>
     </section>
 </main>
+
 <footer class="site-footer">
     <section class="container">
         <div class="footer-grid">
             <div class="footer-col">
-                <div class="footer-logo-placeholder"><img src="img/logo-hotel-sem-fundo.png" alt="logo"></div>
+                <div class="footer-logo-placeholder"><img src="img/logo-hotel-sem-fundo.png" alt="Logo do Hotel Palace Huesca"></div>
                 <p class="missao">Hospitalidade, simplicidade, limpeza e localização estratégica no centro de Presidente Prudente.</p>
                 <div class="social-links" aria-label="Redes sociais">
                     <a href="#" aria-label="Adicionar endereço do Facebook">Facebook</a>
@@ -125,12 +170,14 @@
             </div>
             <div class="footer-col">
                 <h2>Navegação</h2>
-                <ul><li><a href="index.html">Nosso Hotel</a></li>
-<li><a href="quartos.html">Quartos</a></li>
-<li><a href="localizacao.html">Localização</a></li>
-<li><a href="sobre.html">Sobre Nós</a></li>
-<li><a href="atendimento.html">Atendimento</a></li>
-<li><a href="faq.html">FAQ</a></li></ul>
+                <ul>
+                    <li><a href="index.html">Nosso Hotel</a></li>
+                    <li><a href="quartos.html">Quartos</a></li>
+                    <li><a href="localizacao.html">Localização</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="atendimento.html">Atendimento</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
             </div>
             <div class="footer-col">
                 <h2>Contato e endereço</h2>

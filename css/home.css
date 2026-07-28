@@ -19,3 +19,105 @@
 .card-acomodacao p{min-height:78px;margin-bottom:18px;color:var(--cor-texto-secundario)}
 @media(max-width:900px){.hero-grid,.apresentacao-grid{grid-template-columns:1fr}.vantagens-grid{grid-template-columns:1fr 1fr}.hero{padding:58px 0}}
 @media(max-width:560px){.vantagens-grid{grid-template-columns:1fr}}
+
+/* Avaliação do Google na abertura da página */
+.google-avaliacao-card{
+    display:flex;
+    width:min(100%,560px);
+    align-items:center;
+    gap:14px;
+    margin-top:22px;
+    padding:15px 17px;
+    border:1px solid var(--cor-borda);
+    border-radius:14px;
+    background:#fff;
+    box-shadow:0 8px 24px rgba(9,52,94,.08);
+    color:var(--cor-texto);
+}
+.google-avaliacao-card:hover{
+    border-color:#aebdca;
+    box-shadow:0 12px 30px rgba(9,52,94,.13);
+    transform:translateY(-1px);
+}
+.google-avaliacao-marca{
+    display:grid;
+    width:44px;
+    height:44px;
+    flex:0 0 44px;
+    place-items:center;
+    border:1px solid #e2e8ee;
+    border-radius:50%;
+    background:#fff;
+    color:#4285f4;
+    font-size:1.45rem;
+    font-weight:700;
+    font-family:Arial,sans-serif;
+}
+.google-avaliacao-conteudo{
+    display:flex;
+    min-width:0;
+    flex:1;
+    flex-direction:column;
+}
+.google-avaliacao-titulo{
+    color:var(--cor-texto-secundario);
+    font-size:.78rem;
+    font-weight:600;
+    line-height:1.3;
+}
+.google-avaliacao-linha{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    line-height:1.35;
+}
+.google-avaliacao-linha strong{
+    color:var(--cor-texto);
+    font-size:1.05rem;
+}
+.google-avaliacao-estrelas{
+    --rating:4.3;
+    position:relative;
+    display:inline-block;
+    width:max-content;
+    color:#c5ccd3;
+    font-family:Arial,sans-serif;
+    font-size:1.08rem;
+    letter-spacing:1px;
+    line-height:1;
+    white-space:nowrap;
+}
+.google-avaliacao-estrelas::before{
+    content:"☆☆☆☆☆";
+    color:#aeb8c2;
+}
+.google-avaliacao-estrelas::after{
+    content:"★★★★★";
+    position:absolute;
+    top:0;
+    left:0;
+    width:calc((var(--rating) / 5) * 100%);
+    overflow:hidden;
+    color:#fbbc04;
+    white-space:nowrap;
+}
+.google-avaliacao-total{
+    overflow:hidden;
+    color:var(--cor-texto-secundario);
+    font-size:.8rem;
+    line-height:1.35;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.google-avaliacao-seta{
+    flex:0 0 auto;
+    color:var(--cor-primaria);
+    font-size:1.35rem;
+    font-weight:700;
+}
+@media(max-width:560px){
+    .google-avaliacao-card{padding:13px 14px}
+    .google-avaliacao-marca{width:40px;height:40px;flex-basis:40px}
+    .google-avaliacao-linha{align-items:flex-start;flex-direction:column;gap:2px}
+    .google-avaliacao-total{white-space:normal}
+}
