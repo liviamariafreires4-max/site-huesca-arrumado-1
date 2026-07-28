@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Localização do Hotel Palace Huesca no centro de Presidente Prudente e pontos próximos.">
+    <meta name="description" content="Localização do Hotel Palace Huesca, próximo à Praça Nove de Julho, à Catedral de São Sebastião, ao Calçadão e ao centro comercial de Presidente Prudente.">
     <title>Localização | Hotel Palace Huesca</title>
 
     <link rel="icon" type="image/png" href="img/favicon-hotel-azul.png" media="(prefers-color-scheme: light)">
@@ -14,89 +14,215 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/localizacao.css">
+
+    <style>
+        .mapa-interativo {
+            width: 100%;
+            min-height: 420px;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(9, 52, 94, 0.14);
+            background: #e9eef4;
+        }
+
+        .mapa-interativo iframe {
+            display: block;
+            width: 100%;
+            height: 420px;
+            border: 0;
+        }
+
+        @media (max-width: 768px) {
+            .mapa-interativo,
+            .mapa-interativo iframe {
+                min-height: 340px;
+                height: 340px;
+            }
+        }
+    </style>
 </head>
 <body>
 <header class="site-header">
     <div class="cor-fundo-secundario">
         <nav class="container" aria-label="Navegação principal">
             <a href="index.html" id="logo" aria-label="Hotel Palace Huesca — página inicial">
-                <span class="logo-imagem-placeholder" aria-hidden="true"><img src="img/logo-hotel.png" alt="logo"></span>
+                <span class="logo-imagem-placeholder" aria-hidden="true">
+                    <img src="img/logo-hotel.png" alt="">
+                </span>
                 <span class="logo-texto">Hotel Palace Huesca</span>
             </a>
+
             <ul id="menu-desktop">
                 <li><a href="index.html">Nosso Hotel</a></li>
-<li><a href="quartos.html">Quartos</a></li>
-<li><a href="localizacao.html" aria-current="page" class="ativo">Localização</a></li>
-<li><a href="sobre.html">Sobre Nós</a></li>
-<li><a href="atendimento.html">Atendimento</a></li>
-<li><a href="faq.html">FAQ</a></li>
+                <li><a href="quartos.html">Quartos</a></li>
+                <li><a href="localizacao.html" aria-current="page" class="ativo">Localização</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="atendimento.html">Atendimento</a></li>
+                <li><a href="faq.html">FAQ</a></li>
             </ul>
+
             <a class="nav-reserva" href="reserva.html">Reservar</a>
+
             <button id="menu-button" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile-container">
                 <span aria-hidden="true">☰</span>
             </button>
+
             <div id="menu-mobile-container">
                 <ul id="menu-mobile">
                     <li><a href="index.html">Nosso Hotel</a></li>
-<li><a href="quartos.html">Quartos</a></li>
-<li><a href="localizacao.html" aria-current="page" class="ativo">Localização</a></li>
-<li><a href="sobre.html">Sobre Nós</a></li>
-<li><a href="atendimento.html">Atendimento</a></li>
-<li><a href="faq.html">FAQ</a></li>
+                    <li><a href="quartos.html">Quartos</a></li>
+                    <li><a href="localizacao.html" aria-current="page" class="ativo">Localização</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="atendimento.html">Atendimento</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li><a href="reserva.html">Reservar</a></li>
                 </ul>
             </div>
         </nav>
     </div>
 </header>
+
 <main>
-<section class="cabecalho-pagina"><div class="container"><p class="sobretitulo">Centro de Presidente Prudente</p><h1>Localização estratégica</h1><p>Próximo ao calçadão, shoppings, restaurantes, bancos e serviços.</p></div></section>
-<section class="container conteudo-pagina localizacao-principal">
-<div class="localizacao-texto"><h2>Hotel Palace Huesca</h2><p class="endereco-destaque">Avenida Brasil, nº 550<br>Centro — Presidente Prudente/SP</p><p>O hotel está a poucos minutos do Parque do Povo, Prudenshopping e da Rodovia Raposo Tavares, facilitando a chegada de hóspedes de outras cidades.</p><a class="btn btn-primario" href="https://www.google.com/maps/search/?api=1&query=Avenida+Brasil+550+Presidente+Prudente+SP" target="_blank" rel="noopener noreferrer">Abrir no mapa</a></div>
-<div class="imagem-placeholder mapa-placeholder" role="img" aria-label="Espaço reservado para mapa ou imagem da fachada"><span>INSIRA AQUI O MAPA OU UMA FOTO DA FACHADA</span></div>
-</section>
-<section class="secao-fundo-suave"><div class="container conteudo-pagina"><div class="secao-cabecalho"><p class="sobretitulo">Arredores</p><h2>Pontos importantes próximos ao hotel</h2></div><div class="cards-grid cards-grid-3">
-<article class="local-card"><div class="imagem-placeholder imagem-placeholder-card"><span>FOTO DO LOCAL</span></div><div class="card-conteudo"><h3>Parque Shopping Prudente</h3><p>Rodovia Raposo Tavares, km 561 — Jardim Aviação.</p><ul><li>Cerca de 4,5 km</li><li>Tempo médio de carro: 10 minutos</li></ul></div></article>
-<article class="local-card"><div class="imagem-placeholder imagem-placeholder-card"><span>FOTO DO LOCAL</span></div><div class="card-conteudo"><h3>Prudenshopping</h3><p>Av. Manoel Goulart, 2400.</p><ul><li>Distância: 2,8 km</li><li>Tempo de carro: 6 a 7 minutos</li></ul></div></article>
-<article class="local-card"><div class="imagem-placeholder imagem-placeholder-card"><span>FOTO DO LOCAL</span></div><div class="card-conteudo"><h3>Parque do Povo</h3><p>Principal ponto de lazer da cidade, ideal para caminhadas, eventos e atividades ao ar livre.</p><ul><li>Distância: 1,2 km</li><li>3 minutos de carro</li><li>15 minutos a pé</li></ul></div></article>
-</div></div></section>
+    <section class="cabecalho-pagina">
+        <div class="container">
+            <p class="sobretitulo">No centro de Presidente Prudente</p>
+            <h1>Perto dos principais pontos da cidade</h1>
+            <p>Hospede-se próximo à Praça Nove de Julho, à Catedral de São Sebastião, ao Calçadão e ao centro comercial.</p>
+        </div>
+    </section>
+
+    <section class="container conteudo-pagina localizacao-principal">
+        <div class="localizacao-texto">
+            <h2>Hotel Palace Huesca</h2>
+
+            <p class="endereco-destaque">
+                Avenida Brasil, nº 550<br>
+                Centro — Presidente Prudente/SP
+            </p>
+
+            <p>
+                O Hotel Palace Huesca está em uma localização privilegiada no centro de Presidente Prudente, com fácil acesso à Praça Nove de Julho, à Catedral de São Sebastião e ao tradicional Calçadão. A região reúne importantes pontos históricos e culturais da cidade, além de um movimentado centro comercial, com lojas, restaurantes, bancos e diversos serviços para maior comodidade dos hóspedes.
+            </p>
+
+            <a
+                class="btn btn-primario"
+                href="https://www.google.com/maps/search/?api=1&query=Hotel+Palace+Huesca%2C+Avenida+Brasil%2C+550%2C+Centro%2C+Presidente+Prudente%2C+SP"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir a localização do Hotel Palace Huesca no Google Maps"
+            >
+                Abrir no Google Maps
+            </a>
+        </div>
+
+        <div class="mapa-interativo">
+            <iframe
+                src="https://www.google.com/maps?q=Hotel+Palace+Huesca%2C+Avenida+Brasil%2C+550%2C+Centro%2C+Presidente+Prudente%2C+SP&output=embed"
+                title="Mapa interativo com a localização do Hotel Palace Huesca"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+        </div>
+    </section>
+
+    <section class="secao-fundo-suave">
+        <div class="container conteudo-pagina">
+            <div class="secao-cabecalho">
+                <p class="sobretitulo">Conheça os arredores</p>
+                <h2>Pontos próximos ao hotel</h2>
+                <p>Explore a região central de Presidente Prudente com praticidade durante a sua hospedagem.</p>
+            </div>
+
+            <div class="cards-grid cards-grid-3">
+                <article class="local-card">
+                    <div class=" imagem-placeholder-card">
+                        <span><img src="img/praca-9-de-julho.jpg" alt="Praça Nove de Julho"></span>
+                    </div>
+                    <div class="card-conteudo">
+                        <h3>Praça Nove de Julho</h3>
+                        <p>
+                            Um dos espaços mais tradicionais do centro de Presidente Prudente, cercado por construções históricas, comércio e serviços. É um ponto agradável para conhecer parte da história e do cotidiano da cidade.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="local-card">
+                    <div class="imagem-placeholder-card">
+                        <span><img src="img/Catedral-de-São-Sebastião.jpeg" alt="Catedral de São Sebastião"></span>
+                    </div>
+                    <div class="card-conteudo">
+                        <h3>Catedral de São Sebastião</h3>
+                        <p>
+                            Localizada na região central, a catedral é uma das principais referências religiosas e arquitetônicas de Presidente Prudente, integrando o conjunto histórico e cultural próximo à Praça Nove de Julho.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="local-card">
+                    <div class="imagem-placeholder-card">
+                        <span><img src="img/Calçadão-e-centro-comercial.jpeg" alt="Calçadão e centro comercial"></span>
+                    </div>
+                    <div class="card-conteudo">
+                        <h3>Calçadão e centro comercial</h3>
+                        <p>
+                            O tradicional Calçadão concentra lojas, restaurantes, bancos, farmácias e diversos serviços. A proximidade facilita compras, refeições e atividades do dia a dia sem a necessidade de longos deslocamentos.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 </main>
+
 <footer class="site-footer">
     <section class="container">
         <div class="footer-grid">
             <div class="footer-col">
-                <div class="footer-logo-placeholder"><img src="img/logo-hotel-sem-fundo.png" alt="logo"></div>
+                <div class="footer-logo-placeholder">
+                    <img src="img/logo-hotel-sem-fundo.png" alt="Logo do Hotel Palace Huesca">
+                </div>
                 <p class="missao">Hospitalidade, simplicidade, limpeza e localização estratégica no centro de Presidente Prudente.</p>
                 <div class="social-links" aria-label="Redes sociais">
                     <a href="#" aria-label="Adicionar endereço do Facebook">Facebook</a>
                     <a href="#" aria-label="Adicionar endereço do Instagram">Instagram</a>
                 </div>
             </div>
+
             <div class="footer-col">
                 <h2>Navegação</h2>
-                <ul><li><a href="index.html">Nosso Hotel</a></li>
-<li><a href="quartos.html">Quartos</a></li>
-<li><a href="localizacao.html">Localização</a></li>
-<li><a href="sobre.html">Sobre Nós</a></li>
-<li><a href="atendimento.html">Atendimento</a></li>
-<li><a href="faq.html">FAQ</a></li></ul>
+                <ul>
+                    <li><a href="index.html">Nosso Hotel</a></li>
+                    <li><a href="quartos.html">Quartos</a></li>
+                    <li><a href="localizacao.html">Localização</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="atendimento.html">Atendimento</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
             </div>
+
             <div class="footer-col">
                 <h2>Contato e endereço</h2>
                 <ul>
                     <li><a href="tel:+5518998141622">(18) 99814-1622</a></li>
-                    <li><a href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20Hotel%20Palace%20Huesca!%20Gostaria%20de%20consultar%20disponibilidade%20e%20fazer%20uma%20reserva." target="_blank" rel="noopener noreferrer">Reservar pelo WhatsApp</a></li>
+                    <li>
+                        <a href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20Hotel%20Palace%20Huesca!%20Gostaria%20de%20consultar%20disponibilidade%20e%20fazer%20uma%20reserva." target="_blank" rel="noopener noreferrer">
+                            Reservar pelo WhatsApp
+                        </a>
+                    </li>
                     <li>Avenida Brasil, nº 550<br>Centro — Presidente Prudente/SP</li>
                     <li>Recepção 24 horas</li>
                 </ul>
             </div>
         </div>
+
         <div class="footer-bottom">
             <p>&copy; 2025 Hotel Palace Huesca. Todos os direitos reservados.</p>
             <p>Huesca Palace Hotel LTDA — CNPJ 55.360.507/0001-48</p>
         </div>
     </section>
 </footer>
+
 <script src="js/menu.js"></script>
 </body>
 </html>
