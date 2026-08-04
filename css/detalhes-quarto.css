@@ -289,3 +289,160 @@
         min-height: 260px;
     }
 }
+
+/* =========================================================
+   GALERIA DE FOTOS — PADRONIZAÇÃO FINAL
+
+   Componente responsável:
+   .galeria-quarto
+   .imagem-placeholder-detalhe
+   .imagem-principal-detalhe
+   .galeria-secundaria
+   .borda-img
+
+   Menor arquivo analisado:
+   duplo-2-solteiro-3.jpg — 1512 × 1080 px
+
+   Proporção de referência:
+   1512 / 1080 = 7 / 5
+
+   Cor da borda principal:
+   var(--cor-primaria), já definida em global.css.
+   ========================================================= */
+
+/*
+ * A imagem principal continua na coluna maior e as duas imagens
+ * secundárias continuam empilhadas. Não altera links ou eventos.
+ */
+.galeria-quarto {
+    align-items: stretch;
+}
+
+/*
+ * Remove qualquer espaço interno que possa aparecer entre a
+ * fotografia e seus limites.
+ */
+.galeria-quarto .imagem-placeholder-detalhe {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+}
+
+.galeria-quarto .imagem-placeholder-detalhe > span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+}
+
+/*
+ * Todas as fotos usam a proporção da menor imagem encontrada.
+ * object-fit: cover preenche totalmente o quadro, sem distorcer
+ * e sem criar faixas ou espaços em branco.
+ */
+.galeria-quarto .imagem-placeholder-detalhe img,
+.galeria-quarto .imagem-placeholder-detalhe .borda-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    object-fit: cover;
+    object-position: center;
+    background: transparent;
+}
+
+/* =========================================================
+   FOTO PRINCIPAL — arquivos de número 1
+   ========================================================= */
+
+.imagem-principal-detalhe {
+    aspect-ratio: 7 / 5;
+    min-height: 0;
+    border-radius: 0;
+    overflow: visible;
+}
+
+.imagem-principal-detalhe > span {
+    border-radius: 0;
+    overflow: visible;
+}
+
+/*
+ * A borda fica diretamente no elemento <img>.
+ * Não existe padding nem espaço branco entre a borda e a foto.
+ */
+.imagem-principal-detalhe img,
+.imagem-principal-detalhe .borda-img {
+    border: 3px solid var(--cor-primaria);
+    border-radius: 0;
+}
+
+/* =========================================================
+   FOTOS SECUNDÁRIAS — arquivos de número 2, 3 e 4
+   ========================================================= */
+
+.galeria-secundaria {
+    height: 100%;
+    min-height: 0;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.galeria-secundaria .imagem-placeholder-detalhe {
+    height: 100%;
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.galeria-secundaria .imagem-placeholder-detalhe > span {
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.galeria-secundaria .imagem-placeholder-detalhe img,
+.galeria-secundaria .imagem-placeholder-detalhe .borda-img {
+    border: 0;
+    border-radius: 40px;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 960px) {
+    .imagem-principal-detalhe {
+        aspect-ratio: 7 / 5;
+        min-height: 0;
+    }
+
+    .galeria-secundaria {
+        height: auto;
+    }
+
+    .galeria-secundaria .imagem-placeholder-detalhe {
+        height: auto;
+        aspect-ratio: 7 / 5;
+    }
+}
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 700px) {
+    .imagem-principal-detalhe,
+    .galeria-secundaria .imagem-placeholder-detalhe {
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 7 / 5;
+    }
+}

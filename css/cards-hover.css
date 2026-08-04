@@ -5,168 +5,173 @@
 
 .card-acomodacao,
 .local-card {
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-    animation: entrada-card 0.65s ease backwards;
-    will-change: transform;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+  animation: entrada-card 0.65s ease backwards;
+  will-change: transform;
 }
 
 .cards-grid > :nth-child(2) {
-    animation-delay: 0.09s;
+  animation-delay: 0.09s;
 }
 
 .cards-grid > :nth-child(3) {
-    animation-delay: 0.18s;
+  animation-delay: 0.18s;
 }
 
 .card-acomodacao:hover,
 .card-acomodacao:focus,
 .local-card:hover,
 .local-card:focus-within {
-    transform: translateY(-8px);
-    border-color: rgba(9, 52, 94, 0.28);
-    box-shadow: 0 18px 42px rgba(9, 52, 94, 0.17);
+  transform: translateY(-8px);
+  border-color: rgba(9, 52, 94, 0.28);
+  box-shadow: 0 18px 42px rgba(9, 52, 94, 0.17);
 }
 
 .card-imagem-hover {
-    position: relative;
-    width: 100%;
-    height: 240px;
-    overflow: hidden;
-    background: #e6edf3;
-    isolation: isolate;
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: #e6edf3;
+  isolation: isolate;
 }
 
 .local-card .card-imagem-hover {
-    height: 265px;
+  height: 265px;
 }
 
 .card-imagem-hover img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    object-fit: cover;
-    object-position: center;
-    transition: opacity 0.5s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+  transition:
+    opacity 0.5s ease,
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .card-imagem-hover .imagem-principal {
-    z-index: 1;
-    opacity: 1;
-    transform: scale(1);
+  z-index: 1;
+  opacity: 1;
+  transform: scale(1);
 }
 
 .card-imagem-hover .imagem-secundaria {
-    z-index: 2;
-    opacity: 0;
-    transform: scale(1.06);
+  z-index: 2;
+  opacity: 0;
+  transform: scale(1.06);
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .card-acomodacao:hover .imagem-principal,
-    .local-card:hover .imagem-principal {
-        opacity: 0;
-        transform: scale(1.08);
-    }
+  .card-acomodacao:hover .imagem-principal,
+  .local-card:hover .imagem-principal {
+    opacity: 0;
+    transform: scale(1.08);
+  }
 
-    .card-acomodacao:hover .imagem-secundaria,
-    .local-card:hover .imagem-secundaria {
-        opacity: 1;
-        transform: scale(1);
-    }
+  .card-acomodacao:hover .imagem-secundaria,
+  .local-card:hover .imagem-secundaria {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .card-acomodacao:focus .imagem-principal,
 .local-card:focus-within .imagem-principal {
-    opacity: 0;
-    transform: scale(1.08);
+  opacity: 0;
+  transform: scale(1.08);
 }
 
 .card-acomodacao:focus .imagem-secundaria,
 .local-card:focus-within .imagem-secundaria {
-    opacity: 1;
-    transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }
 
 .card-acomodacao:focus {
-    outline: 3px solid #5c95c4;
-    outline-offset: 4px;
+  outline: 3px solid #5c95c4;
+  outline-offset: 4px;
 }
 
 .local-card-link {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    color: inherit;
-    text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
 }
 
 .local-card-link:focus-visible {
-    outline: 3px solid #5c95c4;
-    outline-offset: -3px;
+  outline: 3px solid #5c95c4;
+  outline-offset: -3px;
 }
 
 .local-card .card-conteudo {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 .maps-destino {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    margin-top: auto;
-    padding-top: 18px;
-    color: #09345e;
-    font-size: 0.9rem;
-    font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 18px;
+  color: #09345e;
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .maps-destino::after {
-    content: "→";
-    transition: transform 0.25s ease;
+  content: "→";
+  transition: transform 0.25s ease;
 }
 
 .local-card:hover .maps-destino::after,
 .local-card:focus-within .maps-destino::after {
-    transform: translateX(5px);
+  transform: translateX(5px);
 }
 
 @keyframes entrada-card {
-    from {
-        opacity: 0;
-        transform: translateY(22px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 640px) {
-    .card-imagem-hover,
-    .local-card .card-imagem-hover {
-        height: 225px;
-    }
+  .card-imagem-hover,
+  .local-card .card-imagem-hover {
+    height: 225px;
+  }
 
-    .card-acomodacao:hover,
-    .card-acomodacao:focus,
-    .local-card:hover,
-    .local-card:focus-within {
-        transform: translateY(-4px);
-    }
+  .card-acomodacao:hover,
+  .card-acomodacao:focus,
+  .local-card:hover,
+  .local-card:focus-within {
+    transform: translateY(-4px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .card-acomodacao,
-    .local-card,
-    .card-imagem-hover img,
-    .maps-destino::after {
-        animation: none !important;
-        transition: none !important;
-    }
+  .card-acomodacao,
+  .local-card,
+  .card-imagem-hover img,
+  .maps-destino::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

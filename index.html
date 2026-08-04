@@ -1,317 +1,517 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hotel Palace Huesca no centro de Presidente Prudente, com café da manhã, Wi-Fi gratuito, estacionamento e recepção 24 horas.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Hotel Palace Huesca no centro de Presidente Prudente, com café da manhã, Wi-Fi gratuito, estacionamento e recepção 24 horas."
+    />
     <title>Hotel Palace Huesca | Presidente Prudente</title>
 
-    <link rel="icon" type="image/png" href="img/favicon-hotel-azul.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/png" href="img/favicon-hotel-branco.png" media="(prefers-color-scheme: dark)">
+    <link
+      rel="icon"
+      type="image/png"
+      href="img/favicon-hotel-azul.png"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="img/favicon-hotel-branco.png"
+      media="(prefers-color-scheme: dark)"
+    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/index.css?v=20260731-1" />
+    <link rel="stylesheet" href="css/home.css?v=20260731-1" />
 
     <style>
-        /* Animação dos cards de quartos e troca de imagem no hover */
-        .card-acomodacao {
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-            animation: entrada-card 0.65s ease both;
-            will-change: transform;
-        }
+      /* Imagens principais do hotel */
+      .hero .imagem-placeholder-grande span {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 40px;
+      }
 
-        .cards-grid > .card-acomodacao:nth-child(2) {
-            animation-delay: 0.09s;
-        }
+      .hero .imagem-placeholder-grande span + span {
+        margin-top: 24px;
+      }
 
-        .cards-grid > .card-acomodacao:nth-child(3) {
-            animation-delay: 0.18s;
+      .hero .imagem-placeholder-grande img {
+        width: 100%;
+        border-radius: 40px;
+        object-fit: cover;
+      }
+
+      /* Animação dos cards de quartos e troca de imagem no hover */
+      .card-acomodacao {
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.35s ease,
+          box-shadow 0.35s ease,
+          border-color 0.35s ease;
+        animation: entrada-card 0.65s ease both;
+        will-change: transform;
+      }
+
+      .cards-grid > .card-acomodacao:nth-child(2) {
+        animation-delay: 0.09s;
+      }
+
+      .cards-grid > .card-acomodacao:nth-child(3) {
+        animation-delay: 0.18s;
+      }
+
+      .card-acomodacao:hover,
+      .card-acomodacao:focus-visible {
+        transform: translateY(-8px);
+        border-color: rgba(9, 52, 94, 0.28);
+        box-shadow: 0 18px 42px rgba(9, 52, 94, 0.17);
+        outline: none;
+      }
+
+      .card-imagem-hover {
+        position: relative;
+        width: 100%;
+        height: 240px;
+        overflow: hidden;
+        background-color: #e6edf3;
+        isolation: isolate;
+      }
+
+      .card-imagem-hover img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        object-fit: cover;
+        object-position: center;
+        transition:
+          opacity 0.5s ease,
+          transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .card-imagem-hover .imagem-principal {
+        z-index: 1;
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .card-imagem-hover .imagem-secundaria {
+        z-index: 2;
+        opacity: 0;
+        transform: scale(1.06);
+      }
+
+      .card-acomodacao:hover .imagem-principal,
+      .card-acomodacao:focus-visible .imagem-principal {
+        opacity: 0;
+        transform: scale(1.08);
+      }
+
+      .card-acomodacao:hover .imagem-secundaria,
+      .card-acomodacao:focus-visible .imagem-secundaria {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      @keyframes entrada-card {
+        from {
+          opacity: 0;
+          transform: translateY(22px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .card-imagem-hover {
+          height: 225px;
         }
 
         .card-acomodacao:hover,
         .card-acomodacao:focus-visible {
-            transform: translateY(-8px);
-            border-color: rgba(9, 52, 94, 0.28);
-            box-shadow: 0 18px 42px rgba(9, 52, 94, 0.17);
-            outline: none;
+          transform: translateY(-4px);
         }
+      }
 
-        .card-imagem-hover {
-            position: relative;
-            width: 100%;
-            height: 240px;
-            overflow: hidden;
-            background-color: #e6edf3;
-            isolation: isolate;
-        }
-
+      @media (prefers-reduced-motion: reduce) {
+        .card-acomodacao,
         .card-imagem-hover img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            object-fit: cover;
-            object-position: center;
-            transition: opacity 0.5s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+          animation: none !important;
+          transition: none !important;
         }
-
-        .card-imagem-hover .imagem-principal {
-            z-index: 1;
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .card-imagem-hover .imagem-secundaria {
-            z-index: 2;
-            opacity: 0;
-            transform: scale(1.06);
-        }
-
-        .card-acomodacao:hover .imagem-principal,
-        .card-acomodacao:focus-visible .imagem-principal {
-            opacity: 0;
-            transform: scale(1.08);
-        }
-
-        .card-acomodacao:hover .imagem-secundaria,
-        .card-acomodacao:focus-visible .imagem-secundaria {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        @keyframes entrada-card {
-            from {
-                opacity: 0;
-                transform: translateY(22px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 640px) {
-            .card-imagem-hover {
-                height: 225px;
-            }
-
-            .card-acomodacao:hover,
-            .card-acomodacao:focus-visible {
-                transform: translateY(-4px);
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .card-acomodacao,
-            .card-imagem-hover img {
-                animation: none !important;
-                transition: none !important;
-            }
-        }
+      }
     </style>
-</head>
-<body>
-<header class="site-header">
-    <div class="cor-fundo-secundario">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="cor-fundo-secundario">
         <nav class="container" aria-label="Navegação principal">
-            <a href="index.html" id="logo" aria-label="Hotel Palace Huesca — página inicial">
-                <span class="logo-imagem-placeholder" aria-hidden="true"><img src="img/logo-hotel.png" alt="logo"></span>
-                <span class="logo-texto">Hotel Palace Huesca</span>
-            </a>
-            <ul id="menu-desktop">
-                <li><a href="index.html" aria-current="page" class="ativo">Nosso Hotel</a></li>
-<li><a href="quartos.html">Quartos</a></li>
-<li><a href="localizacao.html">Localização</a></li>
-<li><a href="sobre.html">Sobre Nós</a></li>
-<li><a href="atendimento.html">Atendimento</a></li>
-<li><a href="faq.html">FAQ</a></li>
-            </ul>
-            <a class="nav-reserva" href="reserva.html">Reservar</a>
-            <button id="menu-button" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile-container">
-                <span aria-hidden="true">☰</span>
-            </button>
-            <div id="menu-mobile-container">
-                <ul id="menu-mobile">
-                    <li><a href="index.html" aria-current="page" class="ativo">Nosso Hotel</a></li>
-<li><a href="quartos.html">Quartos</a></li>
-<li><a href="localizacao.html">Localização</a></li>
-<li><a href="sobre.html">Sobre Nós</a></li>
-<li><a href="atendimento.html">Atendimento</a></li>
-<li><a href="faq.html">FAQ</a></li>
-                    <li><a href="reserva.html">Reservar</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-</header>
-<main>
-    <section class="hero">
-        <div class="container hero-grid">
-            <div class="hero-conteudo">
-                <p class="sobretitulo">Hotel no centro de Presidente Prudente</p>
-                <h1>Hospitalidade e praticidade para a sua estadia</h1>
-                <p class="hero-texto">O Hotel Palace Huesca é reconhecido pela hospitalidade, simplicidade, limpeza e localização estratégica.</p>
-
-                <a
-                    class="google-avaliacao-card"
-                    id="google-avaliacao"
-                    href="https://www.google.com/maps/search/?api=1&amp;query=Hotel%20Palace%20Huesca%2C%20Avenida%20Brasil%20550%2C%20Presidente%20Prudente%2C%20SP"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Hotel Palace Huesca: avaliação de 4,3 de 5 estrelas. Abrir avaliações no Google Maps"
+          <a
+            href="index.html"
+            id="logo"
+            aria-label="Hotel Palace Huesca — página inicial"
+          >
+            <span class="logo-imagem-placeholder" aria-hidden="true"
+              ><img src="img/logo-hotel.png" alt="logo"
+            /></span>
+            <span class="logo-texto">Hotel Palace Huesca</span>
+          </a>
+          <ul id="menu-desktop">
+            <li>
+              <a href="index.html" aria-current="page" class="ativo"
+                >Nosso Hotel</a
+              >
+            </li>
+            <li><a href="quartos.html">Quartos</a></li>
+            <li><a href="localizacao.html">Localização</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="atendimento.html">Atendimento</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+          <a class="nav-reserva" href="reserva.html">Reservar</a>
+          <button
+            id="menu-button"
+            type="button"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="menu-mobile-container"
+          >
+            <span aria-hidden="true">☰</span>
+          </button>
+          <div id="menu-mobile-container">
+            <ul id="menu-mobile">
+              <li>
+                <a href="index.html" aria-current="page" class="ativo"
+                  >Nosso Hotel</a
                 >
-                    <span class="google-avaliacao-marca" aria-hidden="true">G</span>
-                    <span class="google-avaliacao-conteudo">
-                        <span class="google-avaliacao-titulo">Avaliação no Google</span>
-                        <span class="google-avaliacao-linha">
-                            <strong id="google-avaliacao-nota">4,3 de 5</strong>
-                            <span class="google-avaliacao-estrelas" style="--rating: 4.3;" role="img" aria-label="Avaliação de 4,3 de 5 estrelas"></span>
-                        </span>
-                        <span class="google-avaliacao-total">Veja as avaliações no Google</span>
-                    </span>
-                    <span class="google-avaliacao-seta" aria-hidden="true">→</span>
-                </a>
+              </li>
+              <li><a href="quartos.html">Quartos</a></li>
+              <li><a href="localizacao.html">Localização</a></li>
+              <li><a href="sobre.html">Sobre Nós</a></li>
+              <li><a href="atendimento.html">Atendimento</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="reserva.html">Reservar</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-conteudo">
+            <p class="sobretitulo">Hotel no centro de Presidente Prudente</p>
+            <h1>Hospitalidade e praticidade para a sua estadia</h1>
+            <p class="hero-texto">
+              O Hotel Palace Huesca é reconhecido pela hospitalidade,
+              simplicidade, limpeza e localização estratégica.
+            </p>
 
-                <div class="hero-acoes">
-                    <a class="btn btn-primario" href="reserva.html">Reservar agora</a>
-                    <a class="btn btn-secundario" href="quartos.html">Conhecer os quartos</a>
-                </div>
+            <a
+              class="google-avaliacao-card"
+              id="google-avaliacao"
+              href="https://www.google.com/maps/search/?api=1&amp;query=Hotel%20Palace%20Huesca%2C%20Avenida%20Brasil%20550%2C%20Presidente%20Prudente%2C%20SP"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Hotel Palace Huesca: avaliação de 4,3 de 5 estrelas. Abrir avaliações no Google Maps"
+            >
+              <span class="google-avaliacao-marca" aria-hidden="true">G</span>
+              <span class="google-avaliacao-conteudo">
+                <span class="google-avaliacao-titulo">Avaliação no Google</span>
+                <span class="google-avaliacao-linha">
+                  <strong id="google-avaliacao-nota">4,3 de 5</strong>
+                  <span
+                    class="google-avaliacao-estrelas"
+                    style="--rating: 4.3"
+                    role="img"
+                    aria-label="Avaliação de 4,3 de 5 estrelas"
+                  ></span>
+                </span>
+                <span class="google-avaliacao-total"
+                  >Veja as avaliações no Google</span
+                >
+              </span>
+              <span class="google-avaliacao-seta" aria-hidden="true">→</span>
+            </a>
+
+            <div class="hero-acoes">
+              <a class="btn btn-primario" href="reserva.html">Reservar agora</a>
+              <a class="btn btn-secundario" href="quartos.html"
+                >Conhecer os quartos</a
+              >
             </div>
-            <div class="imagem-placeholder imagem-placeholder-grande" role="img" aria-label="Espaço reservado para imagem principal do hotel">
-                <span>INSIRA A IMAGEM PRINCIPAL DO HOTEL</span>
-            </div>
+          </div>
+          <div
+            class="imagem-placeholder imagem-placeholder-grande"
+            role="img"
+            aria-label="Espaço reservado para imagem principal do hotel"
+          > <span><img src="img/imagem-principal.jpeg" alt="fachada do hotel"></span>
+            <span><img src="img/hotel/recepção.jpg" alt="fachada do hotel"></span>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <section class="vantagens container" aria-labelledby="titulo-vantagens">
+      <section class="vantagens container" aria-labelledby="titulo-vantagens">
         <div class="secao-cabecalho">
-            <p class="sobretitulo">Estrutura e comodidade</p>
-            <h2 id="titulo-vantagens">Por que escolher o Hotel Palace Huesca?</h2>
+          <p class="sobretitulo">Estrutura e comodidade</p>
+          <h2 id="titulo-vantagens">Por que escolher o Hotel Palace Huesca?</h2>
         </div>
         <div class="vantagens-grid">
-            <article class="vantagem-card"><span class="icone-texto">01</span><h3>Café da manhã incluso</h3><p>Servido diariamente das 6h às 9h.</p></article>
-            <article class="vantagem-card"><span class="icone-texto">02</span><h3>Wi-Fi gratuito</h3><p>Internet rápida disponível nos quartos.</p></article>
-            <article class="vantagem-card"><span class="icone-texto">03</span><h3>Estacionamento coberto</h3><p>Gratuito, mediante consulta de disponibilidade no check-in.</p></article>
-            <article class="vantagem-card"><span class="icone-texto">04</span><h3>Recepção 24 horas</h3><p>Check-in noturno e suporte durante toda a estadia.</p></article>
+          <article class="vantagem-card">
+            <span class="icone-texto">01</span>
+            <h3>Café da manhã incluso</h3>
+            <p>Servido diariamente das 6h às 9h.</p>
+          </article>
+          <article class="vantagem-card">
+            <span class="icone-texto">02</span>
+            <h3>Wi-Fi gratuito</h3>
+            <p>Internet rápida disponível nos quartos.</p>
+          </article>
+          <article class="vantagem-card">
+            <span class="icone-texto">03</span>
+            <h3>Estacionamento coberto</h3>
+            <p>Gratuito, mediante consulta de disponibilidade no check-in.</p>
+          </article>
+          <article class="vantagem-card">
+            <span class="icone-texto">04</span>
+            <h3>Recepção 24 horas</h3>
+            <p>Check-in noturno e suporte durante toda a estadia.</p>
+          </article>
         </div>
-    </section>
+      </section>
 
-    <section class="secao-fundo-suave">
+      <section class="secao-fundo-suave">
         <div class="container apresentacao-grid">
-            <div class="imagem-placeholder" role="img" aria-label="Espaço reservado para imagem da recepção ou área interna"><span>INSIRA UMA IMAGEM DO HOTEL</span></div>
-            <div class="apresentacao-conteudo">
-                <p class="sobretitulo">Localização central</p>
-                <h2>Perto do comércio, serviços e pontos importantes da cidade</h2>
-                <p>O hotel está na Avenida Brasil, nº 550, no centro de Presidente Prudente, próximo ao calçadão, shoppings, restaurantes, bancos e serviços.</p>
-                <p>A localização também facilita o acesso ao Parque do Povo, Prudenshopping e à Rodovia Raposo Tavares.</p>
-                <a class="link-seta" href="localizacao.html">Ver localização e pontos próximos <span aria-hidden="true">→</span></a>
-            </div>
+          <div class="mapa-destaque">
+            <iframe
+              src="mapa-localizacao.html"
+              title="Mapa com o Hotel Palace Huesca, o Calçadão, a Praça Nove de Julho e a Catedral de São Sebastião"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div class="apresentacao-conteudo">
+            <p class="sobretitulo">Localização central</p>
+            <h2>Perto do Calçadão, da Praça Nove de Julho e da Catedral</h2>
+            <p>
+              O hotel está na Avenida Brasil, nº 550, no centro de Presidente
+              Prudente. O Calçadão da Rua Tenente Nicolau Maffei, a Praça Nove
+              de Julho e a Catedral de São Sebastião são as três referências
+              próximas destacadas no mapa.
+            </p>
+            <p>
+              A Praça fica a cerca de 450 metros do hotel, e o Google indica
+              aproximadamente 8 minutos de caminhada até a Catedral. No
+              entorno central, há lojas, restaurantes, bancos, farmácias e
+              outros serviços úteis durante a estadia.
+            </p>
+            <a class="link-seta" href="localizacao.html"
+              >Ver localização e pontos próximos
+              <span aria-hidden="true">→</span></a
+            >
+          </div>
         </div>
-    </section>
+      </section>
 
-    <section class="container quartos-destaque" aria-labelledby="titulo-quartos">
+      <section
+        class="container quartos-destaque"
+        aria-labelledby="titulo-quartos"
+      >
         <div class="secao-cabecalho secao-cabecalho-com-acao">
-            <div><p class="sobretitulo">Acomodações</p><h2 id="titulo-quartos">Quartos para diferentes necessidades</h2></div>
-            <a class="btn btn-secundario" href="quartos.html">Ver todos os quartos</a>
+          <div>
+            <p class="sobretitulo">Acomodações</p>
+            <h2 id="titulo-quartos">Quartos para diferentes necessidades</h2>
+          </div>
+          <a class="btn btn-secundario" href="quartos.html"
+            >Ver todos os quartos</a
+          >
         </div>
         <div class="cards-grid cards-grid-3">
-            <article class="card-acomodacao" tabindex="0">
-                <div class="card-imagem-hover">
-                    <img class="imagem-principal" src="img/cards/quarto-individual-1.jpg" alt="Quarto Individual — imagem principal">
-                    <img class="imagem-secundaria" src="img/cards/quarto-individual-2.jpg" alt="Quarto Individual — imagem secundária" loading="lazy">
-                </div>
-                <div class="card-conteudo">
-                    <span class="etiqueta">Ar-condicionado</span>
-                    <h3>Quarto Individual</h3>
-                    <p>Wi-Fi rápido, TV, roupa de cama, toalhas e limpeza diária.</p>
-                    <strong class="preco">R$ 190,00</strong>
-                </div>
-            </article>
+          <article class="card-acomodacao" tabindex="0">
+            <div class="card-imagem-hover">
+              <img
+                class="imagem-principal"
+                src="img/quartos/studio-standard/studio-standard-1.jpg"
+                alt="Quarto Individual — imagem principal"
+              />
+              <img
+                class="imagem-secundaria"
+                src="img/quartos/studio-standard/studio-standard-2.jpg"
+                alt="Quarto Individual — imagem secundária"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-conteudo">
+              <span class="etiqueta">Ar-condicionado</span>
+              <h3>Estúdio Standard</h3>
+              <p>Uma cama de casal acompanhado com Wi-Fi rápido, TV, roupa de cama, toalhas e limpeza diária.</p>
+              <strong class="preco">R$ 190,00</strong>
+            </div>
+          </article>
 
-            <article class="card-acomodacao" tabindex="0">
-                <div class="card-imagem-hover">
-                    <img class="imagem-principal" src="img/cards/quarto-duplo-1.jpg" alt="Quarto Duplo — imagem principal">
-                    <img class="imagem-secundaria" src="img/cards/quarto-duplo-2.jpg" alt="Quarto Duplo — imagem secundária" loading="lazy">
-                </div>
-                <div class="card-conteudo">
-                    <span class="etiqueta">Ar-condicionado</span>
-                    <h3>Quarto Duplo</h3>
-                    <p>Ambiente confortável para casais e viajantes a trabalho.</p>
-                    <strong class="preco">R$ 230,00</strong>
-                </div>
-            </article>
+          <article class="card-acomodacao" tabindex="0">
+            <div class="card-imagem-hover">
+              <img
+                class="imagem-principal"
+                src="img/quartos/duplo-casal-solteiro/duplo-casal-e-solteiro-ar-1.jpg"
+                alt="Quarto Duplo — imagem principal"
+              />
+              <img
+                class="imagem-secundaria"
+                src="img/quartos/duplo-casal-solteiro/duplo-casal-e-solteiro-ar-2.jpg"
+                alt="Quarto Duplo — imagem secundária"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-conteudo">
+              <span class="etiqueta">Ar-condicionado</span>
+              <h3>Quarto Duplo</h3>
+              <p>
+                Ambiente confortável com 1 cama de casal e 1 cama de solteiro
+                para casais e viajantes a trabalho.
+              </p>
+              <strong class="preco">R$ 230,00</strong>
+            </div>
+          </article>
 
-            <article class="card-acomodacao" tabindex="0">
-                <div class="card-imagem-hover">
-                    <img class="imagem-principal" src="img/cards/quarto-triplo-1.jpg" alt="Quarto Triplo — imagem principal">
-                    <img class="imagem-secundaria" src="img/cards/quarto-triplo-2.jpg" alt="Quarto Triplo — imagem secundária" loading="lazy">
-                </div>
-                <div class="card-conteudo">
-                    <span class="etiqueta">Ar-condicionado</span>
-                    <h3>Quarto Triplo</h3>
-                    <p>Opção para até três hóspedes, com comodidades essenciais.</p>
-                    <strong class="preco">R$ 340,00</strong>
-                </div>
-            </article>
+          <article class="card-acomodacao" tabindex="0">
+            <div class="card-imagem-hover">
+              <img
+                class="imagem-principal"
+                src="img/quartos/quarto-triplo/quarto-triplo-1.jpg"
+                alt="Quarto Triplo — imagem principal"
+              />
+              <img
+                class="imagem-secundaria"
+                src="img/quartos/quarto-triplo/quarto-triplo-3.jpg"
+                alt="Quarto Triplo — imagem secundária"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-conteudo">
+              <span class="etiqueta">Ar-condicionado</span>
+              <h3>Quarto Triplo</h3>
+              <p>Opção para até três hóspedes, com comodidades essenciais.</p>
+              <strong class="preco">R$ 340,00</strong>
+            </div>
+          </article>
         </div>
-    </section>
+      </section>
 
-    <section class="cta-reserva">
+      <section class="cta-reserva">
         <div class="container cta-reserva-conteudo">
-            <div><p class="sobretitulo sobretitulo-claro">Atendimento direto</p><h2>Vagas limitadas. Reserve hoje e evite imprevistos.</h2><p>Consulte disponibilidade, valores e configuração dos quartos pelo WhatsApp.</p></div>
-            <a class="btn btn-claro" href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+          <div>
+            <p class="sobretitulo sobretitulo-claro">Atendimento direto</p>
+            <h2>Vagas limitadas. Reserve hoje e evite imprevistos.</h2>
+            <p>
+              Consulte disponibilidade, valores e configuração dos quartos pelo
+              WhatsApp.
+            </p>
+          </div>
+          <a
+            class="btn btn-claro"
+            href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A."
+            target="_blank"
+            rel="noopener noreferrer"
+            >Falar no WhatsApp</a
+          >
         </div>
-    </section>
-</main>
-<footer class="site-footer">
-    <section class="container">
+      </section>
+    </main>
+    <footer class="site-footer">
+      <section class="container">
         <div class="footer-grid">
-            <div class="footer-col">
-                <div class="footer-logo-placeholder"><img src="img/logo-hotel-sem-fundo.png" alt="logo"></div>
-                <p class="missao">Hospitalidade, simplicidade, limpeza e localização estratégica no centro de Presidente Prudente.</p>
-                <div class="social-links" aria-label="Redes sociais">
-                    <a class="social-link" href="https://www.facebook.com/profile.php?id=61592348461438" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Facebook do Hotel Palace Huesca">
-                        <img src="img/facebook.png" alt="" aria-hidden="true">
-                    </a>
-                    <a class="social-link" href="https://www.instagram.com/hotelhuesca/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Instagram do Hotel Palace Huesca">
-                        <img src="img/instagram.png" alt="" aria-hidden="true">
-                    </a>
-                    <a class="social-link" href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A." target="_blank" rel="noopener noreferrer" aria-label="Falar com o Hotel Palace Huesca pelo WhatsApp">
-                        <img src="img/whatsapp.png" alt="" aria-hidden="true">
-                    </a>
-                </div>
+          <div class="footer-col">
+            <div class="footer-logo-placeholder">
+              <img src="img/logo-hotel-sem-fundo.png" alt="logo" />
             </div>
-            <div class="footer-col">
-                <h2>Navegação</h2>
-                <ul><li><a href="index.html">Nosso Hotel</a></li>
-<li><a href="quartos.html">Quartos</a></li>
-<li><a href="localizacao.html">Localização</a></li>
-<li><a href="sobre.html">Sobre Nós</a></li>
-<li><a href="atendimento.html">Atendimento</a></li>
-<li><a href="faq.html">FAQ</a></li></ul>
+            <p class="missao">
+              Hospitalidade, simplicidade, limpeza e localização estratégica no
+              centro de Presidente Prudente.
+            </p>
+            <div class="social-links" role="group" aria-label="Redes sociais">
+              <a
+                class="social-link"
+                href="https://www.facebook.com/profile.php?id=61592348461438"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir o Facebook do Hotel Palace Huesca"
+              >
+                <img src="img/facebook.png" alt="" aria-hidden="true" />
+              </a>
+              <a
+                class="social-link"
+                href="https://www.instagram.com/hotelhuesca/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir o Instagram do Hotel Palace Huesca"
+              >
+                <img src="img/instagram.png" alt="" aria-hidden="true" />
+              </a>
+              <a
+                class="social-link"
+                href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A."
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Falar com o Hotel Palace Huesca pelo WhatsApp"
+              >
+                <img src="img/whatsapp.png" alt="" aria-hidden="true" />
+              </a>
             </div>
-            <div class="footer-col">
-                <h2>Contato e endereço</h2>
-                <ul>
-                    <li><a href="tel:+5518998141622">(18) 99814-1622</a></li>
-                    <li><a href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A." target="_blank" rel="noopener noreferrer">Reservar pelo WhatsApp</a></li>
-                    <li>Avenida Brasil, nº 550<br>Centro — Presidente Prudente/SP</li>
-                    <li>Recepção 24 horas</li>
-                </ul>
-            </div>
+          </div>
+          <div class="footer-col">
+            <h2>Navegação</h2>
+            <ul>
+              <li><a href="index.html">Nosso Hotel</a></li>
+              <li><a href="quartos.html">Quartos</a></li>
+              <li><a href="localizacao.html">Localização</a></li>
+              <li><a href="sobre.html">Sobre Nós</a></li>
+              <li><a href="atendimento.html">Atendimento</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2>Contato e endereço</h2>
+            <ul>
+              <li>
+                <a href="tel:+5518998141622">(18)&nbsp;99814&#8209;1622</a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Reservar pelo WhatsApp</a
+                >
+              </li>
+              <li>
+                Avenida Brasil, nº 550<br />Centro — Presidente Prudente/SP
+              </li>
+              <li>Recepção 24 horas</li>
+            </ul>
+          </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Hotel Palace Huesca. Todos os direitos reservados.</p>
-            <p>Huesca Palace Hotel LTDA — CNPJ 55.360.507/0001-48</p>
+          <p>&copy; 2025 Hotel Palace Huesca. Todos os direitos reservados.</p>
+          <p>Huesca Palace Hotel LTDA — CNPJ 55.360.507/0001-48</p>
         </div>
-    </section>
-</footer>
-<script src="js/menu.js"></script>
-</body>
+      </section>
+    </footer>
+    <script src="js/menu.js"></script>
+  </body>
 </html>
+

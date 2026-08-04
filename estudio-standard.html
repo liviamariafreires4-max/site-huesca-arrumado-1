@@ -1,247 +1,347 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Informações completas sobre o Estúdio Standard — Ar-condicionado do Hotel Palace Huesca, em Presidente Prudente.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Informações completas sobre o Estúdio Standard — Ar-condicionado do Hotel Palace Huesca, em Presidente Prudente."
+    />
     <title>Estúdio Standard — Ar-condicionado | Hotel Palace Huesca</title>
 
-    <link rel="icon" type="image/png" href="img/favicon-hotel-azul.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/png" href="img/favicon-hotel-branco.png" media="(prefers-color-scheme: dark)">
+    <link
+      rel="icon"
+      type="image/png"
+      href="img/favicon-hotel-azul.png"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="img/favicon-hotel-branco.png"
+      media="(prefers-color-scheme: dark)"
+    />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/detalhes-quarto.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/detalhes-quarto.css" />
+  </head>
+  <body>
     <header class="site-header">
-        <div class="cor-fundo-secundario">
-            <nav class="container" aria-label="Navegação principal">
-                <a href="index.html" id="logo" aria-label="Hotel Palace Huesca — página inicial">
-                    <span class="logo-imagem-placeholder" aria-hidden="true">
-                        <img src="img/logo-hotel.png" alt="Logo do Hotel Palace Huesca">
-                    </span>
-                    <span class="logo-texto">Hotel Palace Huesca</span>
-                </a>
+      <div class="cor-fundo-secundario">
+        <nav class="container" aria-label="Navegação principal">
+          <a
+            href="index.html"
+            id="logo"
+            aria-label="Hotel Palace Huesca — página inicial"
+          >
+            <span class="logo-imagem-placeholder" aria-hidden="true">
+              <img src="img/logo-hotel.png" alt="Logo do Hotel Palace Huesca" />
+            </span>
+            <span class="logo-texto">Hotel Palace Huesca</span>
+          </a>
 
-                <ul id="menu-desktop">
-                    <li><a href="index.html">Nosso Hotel</a></li>
-                    <li><a href="quartos.html" aria-current="page" class="ativo">Quartos</a></li>
-                    <li><a href="localizacao.html">Localização</a></li>
-                    <li><a href="sobre.html">Sobre Nós</a></li>
-                    <li><a href="atendimento.html">Atendimento</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                </ul>
+          <ul id="menu-desktop">
+            <li><a href="index.html">Nosso Hotel</a></li>
+            <li>
+              <a href="quartos.html" aria-current="page" class="ativo"
+                >Quartos</a
+              >
+            </li>
+            <li><a href="localizacao.html">Localização</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="atendimento.html">Atendimento</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
 
-                <a class="nav-reserva" href="reserva.html">Reservar</a>
+          <a class="nav-reserva" href="reserva.html">Reservar</a>
 
-                <button
-                    id="menu-button"
-                    type="button"
-                    aria-label="Abrir menu"
-                    aria-expanded="false"
-                    aria-controls="menu-mobile-container"
+          <button
+            id="menu-button"
+            type="button"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="menu-mobile-container"
+          >
+            <span aria-hidden="true">☰</span>
+          </button>
+
+          <div id="menu-mobile-container">
+            <ul id="menu-mobile">
+              <li><a href="index.html">Nosso Hotel</a></li>
+              <li>
+                <a href="quartos.html" aria-current="page" class="ativo"
+                  >Quartos</a
                 >
-                    <span aria-hidden="true">☰</span>
-                </button>
-
-                <div id="menu-mobile-container">
-                    <ul id="menu-mobile">
-                        <li><a href="index.html">Nosso Hotel</a></li>
-                        <li><a href="quartos.html" aria-current="page" class="ativo">Quartos</a></li>
-                        <li><a href="localizacao.html">Localização</a></li>
-                        <li><a href="sobre.html">Sobre Nós</a></li>
-                        <li><a href="atendimento.html">Atendimento</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="reserva.html">Reservar</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+              </li>
+              <li><a href="localizacao.html">Localização</a></li>
+              <li><a href="sobre.html">Sobre Nós</a></li>
+              <li><a href="atendimento.html">Atendimento</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="reserva.html">Reservar</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <main>
-        <section class="detalhe-quarto-cabecalho">
-            <div class="container">
-                <nav class="breadcrumb" aria-label="Caminho da página">
-                    <a href="index.html">Início</a>
-                    <span aria-hidden="true">›</span>
-                    <a href="quartos.html">Quartos</a>
-                    <span aria-hidden="true">›</span>
-                    <span aria-current="page">Estúdio Standard — Ar-condicionado</span>
-                </nav>
+      <section class="detalhe-quarto-cabecalho">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Caminho da página">
+            <a href="index.html">Início</a>
+            <span aria-hidden="true">›</span>
+            <a href="quartos.html">Quartos</a>
+            <span aria-hidden="true">›</span>
+            <span aria-current="page">Estúdio Standard — Ar-condicionado</span>
+          </nav>
 
-                <div class="etiquetas-detalhe">
-                    <span class="etiqueta-detalhe">Ar-condicionado</span>
-                    <span class="etiqueta-detalhe etiqueta-destaque">Mais escolhido pelos hóspedes</span>
-                </div>
+          <div class="etiquetas-detalhe">
+            <span class="etiqueta-detalhe">Ar-condicionado</span>
+            <span class="etiqueta-detalhe etiqueta-destaque"
+              >Mais escolhido pelos hóspedes</span
+            >
+          </div>
 
-                <h1>Estúdio Standard</h1>
-                <p class="resumo-cabecalho">Suíte climatizada para casal, com cama de casal, banheiro privativo e espaço reservado para refeições.</p>
+          <h1>Estúdio Standard</h1>
+          <p class="resumo-cabecalho">
+            Suíte climatizada para casal, com cama de casal, banheiro privativo
+            e espaço reservado para refeições.
+          </p>
+        </div>
+      </section>
+
+      <section class="container detalhe-quarto-conteudo">
+        <div
+          class="galeria-quarto"
+          role="group"
+          aria-label="Fotos da acomodação"
+        >
+          <div class="imagem-placeholder-detalhe imagem-principal-detalhe">
+            <span>
+              <img
+                src="img/quartos/studio-standard/studio-standard-1.jpg"
+                alt="Estúdio Standard com cama de casal, ar-condicionado e televisão"
+              />
+            </span>
+          </div>
+
+          <div class="galeria-secundaria">
+            <div class="imagem-placeholder-detalhe">
+              <span>
+                <img
+                  src="img/quartos/studio-standard/studio-standard-3.jpg"
+                  alt="Vista da cama e do espelho do Estúdio Standard"
+                />
+              </span>
             </div>
-        </section>
 
-        <section class="container detalhe-quarto-conteudo">
-            <div class="galeria-quarto" aria-label="Espaços para fotos do quarto">
-                <div class="imagem-placeholder-detalhe imagem-principal-detalhe">
-                    <span>INSIRA A FOTO PRINCIPAL DESTE QUARTO</span>
-                </div>
+            <div class="imagem-placeholder-detalhe">
+              <span>
+                <img
+                  src="img/quartos/studio-standard/studio-standard-4.jpg"
+                  alt="Vista da televisão e da bancada do Estúdio Standard"
+                />
+              </span>
+            </div>
+          </div>
+        </div>
 
-                <div class="galeria-secundaria">
-                    <div class="imagem-placeholder-detalhe">
-                        <span>INSIRA OUTRA FOTO DO QUARTO</span>
-                    </div>
-                    <div class="imagem-placeholder-detalhe">
-                        <span>INSIRA OUTRA FOTO DO QUARTO</span>
-                    </div>
-                </div>
+        <div class="detalhe-grid">
+          <div>
+            <div
+              class="resumo-itens"
+              role="group"
+              aria-label="Resumo do quarto"
+            >
+              <div class="resumo-item">
+                <strong>Capacidade</strong>
+                <span>2 hóspedes</span>
+              </div>
+              <div class="resumo-item">
+                <strong>Cama</strong>
+                <span>1 cama de casal</span>
+              </div>
+              <div class="resumo-item">
+                <strong>Climatização</strong>
+                <span>Ar-condicionado</span>
+              </div>
             </div>
 
-            <div class="detalhe-grid">
-                <div>
-                    <div class="resumo-itens" aria-label="Resumo do quarto">
-                        <div class="resumo-item">
-                            <strong>Capacidade</strong>
-                            <span>2 hóspedes</span>
-                        </div>
-                        <div class="resumo-item">
-                            <strong>Cama</strong>
-                            <span>1 cama de casal</span>
-                        </div>
-                        <div class="resumo-item">
-                            <strong>Climatização</strong>
-                            <span>Ar-condicionado</span>
-                        </div>
-                    </div>
+            <section class="bloco-detalhe">
+              <h2>Sobre esta acomodação</h2>
+              <p>
+                O Estúdio Standard combina uma configuração voltada para casal
+                com recursos que ampliam a praticidade da hospedagem. Além da
+                cama de casal e do banheiro privativo, a acomodação dispõe de
+                frigobar e área para refeições, permitindo organizar pequenos
+                lanches e momentos de descanso no próprio quarto. É uma
+                alternativa equilibrada para estadias curtas ou prolongadas.
+              </p>
+            </section>
 
-                    <section class="bloco-detalhe">
-                        <h2>Sobre esta acomodação</h2>
-                        <p>O Estúdio Standard combina uma configuração voltada para casal com recursos que ampliam a praticidade da hospedagem. Além da cama de casal e do banheiro privativo, a acomodação dispõe de frigobar e área para refeições, permitindo organizar pequenos lanches e momentos de descanso no próprio quarto. É uma alternativa equilibrada para estadias curtas ou prolongadas.</p>
-                    </section>
+            <section class="bloco-detalhe">
+              <h2>Indicado para</h2>
+              <p>
+                Casais que procuram uma suíte climatizada, confortável e com
+                espaço para refeições.
+              </p>
+            </section>
 
-                    <section class="bloco-detalhe">
-                        <h2>Indicado para</h2>
-                        <p>Casais que procuram uma suíte climatizada, confortável e com espaço para refeições.</p>
-                    </section>
+            <section class="bloco-detalhe">
+              <h2>O que o quarto oferece</h2>
+              <ul class="comodidades-grid">
+                <li>1 cama de casal</li>
+                <li>Suíte com banheiro privativo</li>
+                <li>Ar-condicionado</li>
+                <li>Wi-Fi rápido</li>
+                <li>TV</li>
+                <li>Frigobar</li>
+                <li>Área para refeições</li>
+                <li>Roupa de cama e toalhas</li>
+                <li>Produtos de banho gratuitos</li>
+                <li>Limpeza diária</li>
+              </ul>
+            </section>
 
-                    <section class="bloco-detalhe">
-                        <h2>O que o quarto oferece</h2>
-                        <ul class="comodidades-grid">
-                            <li>1 cama de casal</li>
-                            <li>Suíte com banheiro privativo</li>
-                            <li>Ar-condicionado</li>
-                            <li>Wi-Fi rápido</li>
-                            <li>TV</li>
-                            <li>Frigobar</li>
-                            <li>Área para refeições</li>
-                            <li>Roupa de cama e toalhas</li>
-                            <li>Produtos de banho gratuitos</li>
-                            <li>Limpeza diária</li>
-                        </ul>
-                    </section>
+            <section class="bloco-detalhe">
+              <h2>Informações importantes</h2>
+              <div class="aviso-detalhe">
+                Confirme disponibilidade, composição das camas e condições da
+                hospedagem diretamente com a recepção antes de concluir a
+                reserva.
+              </div>
+            </section>
 
-                    <section class="bloco-detalhe">
-                        <h2>Informações importantes</h2>
-                        <div class="aviso-detalhe">
-                            Os valores correspondem à tabela fornecida para o projeto. Confirme disponibilidade, composição das camas e condições da hospedagem diretamente com a recepção antes de concluir a reserva.
-                        </div>
-                    </section>
-
-                    <div class="acoes-inferiores">
-                        <a class="btn-secundario-detalhe" href="quartos.html">Voltar para todos os quartos</a>
-                        <a class="btn-secundario-detalhe" href="reserva.html">Ir para a página de reserva</a>
-                    </div>
-                </div>
-
-                <aside class="painel-reserva" aria-label="Preço e reserva">
-                    <p class="preco-legenda">Valor da diária</p>
-                    <strong class="preco-detalhe">R$ 190,00</strong>
-                    <p class="pet-detalhe">Adicional para PET: R$ 29,00</p>
-
-                    <a
-                        class="btn btn-primario"
-                        href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20Hotel%20Palace%20Huesca%21%20Gostaria%20de%20consultar%20a%20disponibilidade%20do%20Est%C3%BAdio%20Standard%20%E2%80%94%20Ar-condicionado."
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >Consultar disponibilidade</a>
-
-                    <ul class="lista-condicoes">
-                        <li>✓ Atendimento pela recepção 24 horas.</li>
-                        <li>✓ A disponibilidade deve ser confirmada antes da reserva.</li>
-                        <li>✓ A composição das camas pode variar conforme a acomodação.</li>
-                        <li>✓ O adicional para PET não está incluído no valor da diária.</li>
-                    </ul>
-                </aside>
+            <div class="acoes-inferiores">
+              <a class="btn-secundario-detalhe" href="quartos.html"
+                >Voltar para todos os quartos</a
+              >
+              <a class="btn-secundario-detalhe" href="reserva.html"
+                >Ir para a página de reserva</a
+              >
             </div>
-        </section>
+          </div>
+
+          <aside class="painel-reserva" aria-label="Preço e reserva">
+            <p class="preco-legenda">Valor da diária</p>
+            <strong class="preco-detalhe">R$ 190,00</strong>
+            <p class="pet-detalhe">Adicional para PET: R$ 29,00</p>
+
+            <a
+              class="btn btn-primario"
+              href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20Hotel%20Palace%20Huesca%21%20Gostaria%20de%20consultar%20a%20disponibilidade%20do%20Est%C3%BAdio%20Standard%20%E2%80%94%20Ar-condicionado."
+              target="_blank"
+              rel="noopener noreferrer"
+              >Consultar disponibilidade</a
+            >
+
+            <ul class="lista-condicoes">
+              <li>✓ Atendimento pela recepção 24 horas.</li>
+              <li>✓ A disponibilidade deve ser confirmada antes da reserva.</li>
+              <li>✓ 1 cama de casal.</li>
+              <li>
+                ✓ O adicional para PET não está incluído no valor da diária.
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-        <section class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="footer-logo-placeholder">
-                        <img src="img/logo-hotel-sem-fundo.png" alt="Logo do Hotel Palace Huesca">
-                    </div>
-                    <p class="missao">
-                        Hospitalidade, simplicidade, limpeza e localização estratégica no centro de Presidente Prudente.
-                    </p>
-                    <div class="social-links" aria-label="Redes sociais">
-                    <a class="social-link" href="https://www.facebook.com/profile.php?id=61592348461438" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Facebook do Hotel Palace Huesca">
-                        <img src="img/facebook.png" alt="" aria-hidden="true">
-                    </a>
-                    <a class="social-link" href="https://www.instagram.com/hotelhuesca/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Instagram do Hotel Palace Huesca">
-                        <img src="img/instagram.png" alt="" aria-hidden="true">
-                    </a>
-                    <a class="social-link" href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A." target="_blank" rel="noopener noreferrer" aria-label="Falar com o Hotel Palace Huesca pelo WhatsApp">
-                        <img src="img/whatsapp.png" alt="" aria-hidden="true">
-                    </a>
-                </div>
-                </div>
-
-                <div class="footer-col">
-                    <h2>Navegação</h2>
-                    <ul>
-                        <li><a href="index.html">Nosso Hotel</a></li>
-                        <li><a href="quartos.html">Quartos</a></li>
-                        <li><a href="localizacao.html">Localização</a></li>
-                        <li><a href="sobre.html">Sobre Nós</a></li>
-                        <li><a href="atendimento.html">Atendimento</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h2>Contato e endereço</h2>
-                    <ul>
-                        <li><a href="tel:+5518998141622">(18) 99814-1622</a></li>
-                        <li>
-                            <a
-                                href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A."
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >Reservar pelo WhatsApp</a>
-                        </li>
-                        <li>
-                            Avenida Brasil, nº 550<br>
-                            Centro — Presidente Prudente/SP
-                        </li>
-                        <li>Recepção 24 horas</li>
-                    </ul>
-                </div>
+      <section class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-logo-placeholder">
+              <img
+                src="img/logo-hotel-sem-fundo.png"
+                alt="Logo do Hotel Palace Huesca"
+              />
             </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 Hotel Palace Huesca. Todos os direitos reservados.</p>
-                <p>Huesca Palace Hotel LTDA — CNPJ 55.360.507/0001-48</p>
+            <p class="missao">
+              Hospitalidade, simplicidade, limpeza e localização estratégica no
+              centro de Presidente Prudente.
+            </p>
+            <div class="social-links" role="group" aria-label="Redes sociais">
+              <a
+                class="social-link"
+                href="https://www.facebook.com/profile.php?id=61592348461438"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir o Facebook do Hotel Palace Huesca"
+              >
+                <img src="img/facebook.png" alt="" aria-hidden="true" />
+              </a>
+              <a
+                class="social-link"
+                href="https://www.instagram.com/hotelhuesca/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir o Instagram do Hotel Palace Huesca"
+              >
+                <img src="img/instagram.png" alt="" aria-hidden="true" />
+              </a>
+              <a
+                class="social-link"
+                href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A."
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Falar com o Hotel Palace Huesca pelo WhatsApp"
+              >
+                <img src="img/whatsapp.png" alt="" aria-hidden="true" />
+              </a>
             </div>
-        </section>
+          </div>
+
+          <div class="footer-col">
+            <h2>Navegação</h2>
+            <ul>
+              <li><a href="index.html">Nosso Hotel</a></li>
+              <li><a href="quartos.html">Quartos</a></li>
+              <li><a href="localizacao.html">Localização</a></li>
+              <li><a href="sobre.html">Sobre Nós</a></li>
+              <li><a href="atendimento.html">Atendimento</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h2>Contato e endereço</h2>
+            <ul>
+              <li>
+                <a href="tel:+5518998141622">(18)&nbsp;99814&#8209;1622</a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Reservar pelo WhatsApp</a
+                >
+              </li>
+              <li>
+                Avenida Brasil, nº 550<br />
+                Centro — Presidente Prudente/SP
+              </li>
+              <li>Recepção 24 horas</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Hotel Palace Huesca. Todos os direitos reservados.</p>
+          <p>Huesca Palace Hotel LTDA — CNPJ 55.360.507/0001-48</p>
+        </div>
+      </section>
     </footer>
 
     <script src="js/menu.js"></script>
-</body>
+  </body>
 </html>

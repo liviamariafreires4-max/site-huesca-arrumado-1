@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa dos pontos próximos ao Hotel Palace Huesca</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin="anonymous"
+    />
+    <style>
+      html,
+      body,
+      #mapa {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        background: #e9eef4;
+        font-family: Arial, sans-serif;
+      }
+
+      .marcador {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border: 3px solid #fff;
+        border-radius: 50% 50% 50% 0;
+        background: #c76b29;
+        box-shadow: 0 3px 10px rgba(15, 35, 55, 0.35);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        transform: rotate(-45deg);
+      }
+
+      .marcador span {
+        transform: rotate(45deg);
+      }
+
+      .marcador-hotel {
+        background: #09345e;
+      }
+
+      .leaflet-popup-content {
+        min-width: 190px;
+        margin: 14px 18px;
+        color: #172536;
+        line-height: 1.45;
+      }
+
+      .leaflet-popup-content strong {
+        display: block;
+        margin-bottom: 3px;
+        color: #09345e;
+        font-size: 14px;
+      }
+
+      .leaflet-popup-content a {
+        display: inline-block;
+        margin-top: 7px;
+        color: #09345e;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <section
+      id="mapa"
+      aria-label="Mapa interativo do Hotel Palace Huesca e de três pontos próximos"
+    ></section>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      (() => {
+        "use strict";
+
+        const pontos = [
+          {
+            nome: "Hotel Palace Huesca",
+            endereco: "Avenida Brasil, nº 550 — Centro",
+            coordenadas: [-22.124364, -51.383925],
+            rotulo: "H",
+            hotel: true,
+            link: "https://www.google.com/maps/search/?api=1&query=Hotel+Palace+Huesca%2C+Avenida+Brasil%2C+550%2C+Presidente+Prudente%2C+SP",
+          },
+          {
+            nome: "Calçadão e centro comercial",
+            endereco: "Rua Tenente Nicolau Maffei — Centro",
+            coordenadas: [-22.1235398, -51.3860819],
+            rotulo: "1",
+            link: "https://www.google.com/maps/search/?api=1&query=Cal%C3%A7ad%C3%A3o+de+Presidente+Prudente%2C+Rua+Tenente+Nicolau+Maffei%2C+Presidente+Prudente%2C+SP",
+          },
+          {
+            nome: "Praça Nove de Julho",
+            endereco: "Centro de Presidente Prudente",
+            coordenadas: [-22.1231273, -51.3880659],
+            rotulo: "2",
+            link: "https://www.google.com/maps/search/?api=1&query=Pra%C3%A7a+Nove+de+Julho%2C+Presidente+Prudente%2C+SP",
+          },
+          {
+            nome: "Catedral de São Sebastião",
+            endereco: "Rua Ribeiro de Barros, nº 1771 — Centro",
+            coordenadas: [-22.1226678, -51.3890777],
+            rotulo: "3",
+            link: "https://www.google.com/maps/search/?api=1&query=Catedral+de+S%C3%A3o+Sebasti%C3%A3o%2C+Rua+Ribeiro+de+Barros%2C+1771%2C+Presidente+Prudente%2C+SP",
+          },
+        ];
+
+        const mapa = L.map("mapa", {
+          scrollWheelZoom: false,
+        });
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>',
+          maxZoom: 19,
+        }).addTo(mapa);
+
+        const limites = [];
+
+        pontos.forEach((ponto) => {
+          const icone = L.divIcon({
+            className: "",
+            html: `<div class="marcador${ponto.hotel ? " marcador-hotel" : ""}"><span>${ponto.rotulo}</span></div>`,
+            iconAnchor: [17, 34],
+            iconSize: [34, 34],
+            popupAnchor: [0, -34],
+          });
+
+          const conteudo = `
+            <strong>${ponto.nome}</strong>
+            <span>${ponto.endereco}</span><br />
+            <a href="${ponto.link}" target="_blank" rel="noopener noreferrer">Abrir no Google Maps</a>
+          `;
+
+          L.marker(ponto.coordenadas, {
+            icon: icone,
+            keyboard: true,
+            title: ponto.nome,
+          })
+            .addTo(mapa)
+            .bindPopup(conteudo);
+
+          limites.push(ponto.coordenadas);
+        });
+
+        mapa.fitBounds(limites, {
+          padding: [42, 42],
+          maxZoom: 16,
+        });
+      })();
+    </script>
+  </body>
+</html>
