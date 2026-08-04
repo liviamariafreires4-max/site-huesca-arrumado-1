@@ -14,7 +14,7 @@
   const GOOGLE_MAPS_API_KEY = "COLE_SUA_CHAVE_AQUI";
 
   const consultaHotel =
-    "Hotel Palace Huesca, Avenida Brasil 550, Presidente Prudente, SP";
+    "Huesca Palace Hotel, Avenida Brasil 550, Presidente Prudente, SP";
   const linkGoogleFallback =
     "https://www.google.com/maps/search/?api=1&query=Hotel%20Palace%20Huesca%2C%20Avenida%20Brasil%20550%2C%20Presidente%20Prudente%2C%20SP";
 
@@ -36,7 +36,7 @@
     total.textContent = mensagem;
     card.setAttribute(
       "aria-label",
-      "Ver a avaliação atual do Hotel Palace Huesca no Google Maps",
+      "Ver a avaliação atual do Huesca Palace Hotel no Google Maps",
     );
   };
 
@@ -93,8 +93,8 @@
       card.setAttribute(
         "aria-label",
         quantidade
-          ? `Hotel Palace Huesca: nota ${notaFormatada} de 5, com ${quantidade} avaliações no Google. Abrir avaliações.`
-          : `Hotel Palace Huesca: nota ${notaFormatada} de 5 no Google. Abrir avaliações.`,
+          ? `Huesca Palace Hotel: nota ${notaFormatada} de 5, com ${quantidade} avaliações no Google. Abrir avaliações.`
+          : `Huesca Palace Hotel: nota ${notaFormatada} de 5 no Google. Abrir avaliações.`,
       );
     } catch (erro) {
       console.error("Não foi possível carregar a avaliação do Google:", erro);
