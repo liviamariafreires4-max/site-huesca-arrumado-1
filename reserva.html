@@ -31,18 +31,63 @@
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/reserva.css" />
     <style>
-      .reserva-imagens {
+      /*
+       * Troca suave das fotos da reserva.
+       * Este bloco sobrescreve o zoom do reserva.css sem alterar o restante
+       * da identidade visual da página.
+       */
+      .reserva-foto {
+        aspect-ratio: 4 / 3;
+      }
+
+      .reserva-foto::after {
+        display: none;
+      }
+
+      .reserva-foto .reserva-imagem {
+        position: absolute;
+        inset: 0;
         display: block;
         width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        filter: none;
+        transform: none;
+        transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1);
       }
 
-      .reserva-imagens img {
-        width: 100%;
-        border-radius: 40px;
+      .reserva-foto .reserva-imagem-principal {
+        z-index: 1;
+        opacity: 1;
       }
 
-      .reserva-imagens img + img {
-        margin-top: 24px;
+      .reserva-foto .reserva-imagem-hover {
+        z-index: 2;
+        opacity: 0;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        .reserva-foto:hover .reserva-imagem,
+        .reserva-foto:hover .reserva-imagem-principal,
+        .reserva-foto:hover .reserva-imagem-hover {
+          filter: none;
+          transform: none;
+        }
+
+        .reserva-foto:hover .reserva-imagem-principal {
+          opacity: 0;
+        }
+
+        .reserva-foto:hover .reserva-imagem-hover {
+          opacity: 1;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reserva-foto .reserva-imagem {
+          transition: none;
+        }
       }
     </style>
   </head>
@@ -122,8 +167,30 @@
           </div>
           <div class="imagem-placeholder imagem-placeholder-grande">
             <span class="reserva-imagens">
-              <img src="img/hotel/recepção-1.jpg" alt="recepção">
-              <img src="img/hotel/descanso.jpg" alt="recepção">
+              <figure class="reserva-foto">
+                <img
+                  class="reserva-imagem reserva-imagem-principal"
+                  src="img/hotel/recepção-1.jpg"
+                  alt="Recepção do Huesca Palace Hotel"
+                />
+                <img
+                  class="reserva-imagem reserva-imagem-hover"
+                  src="img/hotel/recepção.jpg"
+                  alt="Outra vista da recepção do Huesca Palace Hotel"
+                />
+              </figure>
+              <figure class="reserva-foto">
+                <img
+                  class="reserva-imagem reserva-imagem-principal"
+                  src="img/hotel/descanso.jpg"
+                  alt="Área de descanso do Huesca Palace Hotel"
+                />
+                <img
+                  class="reserva-imagem reserva-imagem-hover"
+                  src="img/hotel/sala.jpg"
+                  alt="Sala de convivência do Huesca Palace Hotel"
+                />
+              </figure>
             </span>
           </div>
         </div>
