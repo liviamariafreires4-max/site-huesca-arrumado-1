@@ -1,280 +1,244 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Consulte disponibilidade e faça sua reserva no Huesca Palace Hotel."
-    />
-    <title>Reservas | Huesca Palace Hotel</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consulte disponibilidade e faça sua reserva no Hotel Palace Huesca.">
+    <title>Reservas | Hotel Palace Huesca</title>
 
-    <link
-      rel="icon"
-      type="image/png"
-      href="img/favicon-hotel-azul.png"
-      media="(prefers-color-scheme: light)"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="img/favicon-hotel-branco.png"
-      media="(prefers-color-scheme: dark)"
-    />
+    <link rel="icon" type="image/png" href="img/favicon-hotel-azul.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" href="img/favicon-hotel-branco.png" media="(prefers-color-scheme: dark)">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/reserva.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/reserva.css">
+
     <style>
-      /*
-       * Troca suave das fotos da reserva.
-       * Este bloco sobrescreve o zoom do reserva.css sem alterar o restante
-       * da identidade visual da página.
-       */
-      .reserva-foto {
-        aspect-ratio: 4 / 3;
-      }
-
-      .reserva-foto::after {
-        display: none;
-      }
-
-      .reserva-foto .reserva-imagem {
-        position: absolute;
-        inset: 0;
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        filter: none;
-        transform: none;
-        transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1);
-      }
-
-      .reserva-foto .reserva-imagem-principal {
-        z-index: 1;
-        opacity: 1;
-      }
-
-      .reserva-foto .reserva-imagem-hover {
-        z-index: 2;
-        opacity: 0;
-      }
-
-      @media (hover: hover) and (pointer: fine) {
-        .reserva-foto:hover .reserva-imagem,
-        .reserva-foto:hover .reserva-imagem-principal,
-        .reserva-foto:hover .reserva-imagem-hover {
-          filter: none;
-          transform: none;
+        /*
+         * Galeria da página de reservas.
+         * Todas as regras estruturais ficam neste HTML para impedir que uma
+         * versão antiga do reserva.css solte as imagens sobre a página.
+         */
+        .reserva-galeria {
+            display: grid;
+            width: 100%;
+            min-width: 0;
+            gap: 24px;
         }
 
-        .reserva-foto:hover .reserva-imagem-principal {
-          opacity: 0;
+        .reserva-galeria__foto {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            margin: 0;
+            overflow: hidden;
+            border: 1px solid rgba(9, 52, 94, 0.16);
+            border-radius: 40px;
+            background: #e8edf1;
+            box-shadow: 0 12px 30px rgba(9, 52, 94, 0.12);
+            isolation: isolate;
+            transition:
+                transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 400ms ease,
+                box-shadow 400ms ease;
         }
 
-        .reserva-foto:hover .reserva-imagem-hover {
-          opacity: 1;
+        .reserva-galeria__imagem {
+            position: absolute;
+            inset: 0;
+            display: block;
+            width: 100%;
+            max-width: none;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: none;
+            transform: none;
+            transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1);
         }
-      }
 
-      @media (prefers-reduced-motion: reduce) {
-        .reserva-foto .reserva-imagem {
-          transition: none;
+        .reserva-galeria__imagem--principal {
+            z-index: 1;
+            opacity: 1;
         }
-      }
+
+        .reserva-galeria__imagem--hover {
+            z-index: 2;
+            opacity: 0;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .reserva-galeria__foto:hover {
+                border-color: rgba(9, 52, 94, 0.34);
+                box-shadow: 0 22px 46px rgba(9, 52, 94, 0.20);
+                transform: translateY(-6px);
+            }
+
+            .reserva-galeria__foto:hover .reserva-galeria__imagem--principal {
+                opacity: 0;
+            }
+
+            .reserva-galeria__foto:hover .reserva-galeria__imagem--hover {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 850px) {
+            .reserva-galeria__foto {
+                border-radius: 32px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .reserva-galeria {
+                gap: 18px;
+            }
+
+            .reserva-galeria__foto {
+                border-radius: 24px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reserva-galeria__foto,
+            .reserva-galeria__imagem {
+                transition: none;
+            }
+
+            .reserva-galeria__foto:hover {
+                transform: none;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="cor-fundo-secundario">
+</head>
+<body>
+<header class="site-header">
+    <div class="cor-fundo-secundario">
         <nav class="container" aria-label="Navegação principal">
-          <a
-            href="index.html"
-            id="logo"
-            aria-label="Huesca Palace Hotel — página inicial"
-          >
-            <span class="logo-imagem-placeholder" aria-hidden="true"
-              ><img src="img/logo-hotel.png" alt="logo"
-            /></span>
-            <span class="logo-texto">Huesca Palace Hotel</span>
-          </a>
-          <ul id="menu-desktop">
-            <li><a href="index.html">Nosso Hotel</a></li>
-            <li><a href="quartos.html">Quartos</a></li>
-            <li><a href="localizacao.html">Localização</a></li>
-            <li><a href="sobre.html">Sobre Nós</a></li>
-            <li><a href="atendimento.html">Atendimento</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-          </ul>
-          <a class="nav-reserva" href="reserva.html">Reservar</a>
-          <button
-            id="menu-button"
-            type="button"
-            aria-label="Abrir menu"
-            aria-expanded="false"
-            aria-controls="menu-mobile-container"
-          >
-            <span aria-hidden="true">☰</span>
-          </button>
-          <div id="menu-mobile-container">
-            <ul id="menu-mobile">
-              <li><a href="index.html">Nosso Hotel</a></li>
-              <li><a href="quartos.html">Quartos</a></li>
-              <li><a href="localizacao.html">Localização</a></li>
-              <li><a href="sobre.html">Sobre Nós</a></li>
-              <li><a href="atendimento.html">Atendimento</a></li>
-              <li><a href="faq.html">FAQ</a></li>
-              <li><a href="reserva.html">Reservar</a></li>
+            <a href="index.html" id="logo" aria-label="Hotel Palace Huesca — página inicial">
+                <span class="logo-imagem-placeholder" aria-hidden="true"><img src="img/logo-hotel.png" alt="logo"></span>
+                <span class="logo-texto">Hotel Palace Huesca</span>
+            </a>
+            <ul id="menu-desktop">
+                <li><a href="index.html">Nosso Hotel</a></li>
+<li><a href="quartos.html">Quartos</a></li>
+<li><a href="localizacao.html">Localização</a></li>
+<li><a href="sobre.html">Sobre Nós</a></li>
+<li><a href="atendimento.html">Atendimento</a></li>
+<li><a href="faq.html">FAQ</a></li>
             </ul>
-          </div>
+            <a class="nav-reserva" href="reserva.html">Reservar</a>
+            <button id="menu-button" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile-container">
+                <span aria-hidden="true">☰</span>
+            </button>
+            <div id="menu-mobile-container">
+                <ul id="menu-mobile">
+                    <li><a href="index.html">Nosso Hotel</a></li>
+<li><a href="quartos.html">Quartos</a></li>
+<li><a href="localizacao.html">Localização</a></li>
+<li><a href="sobre.html">Sobre Nós</a></li>
+<li><a href="atendimento.html">Atendimento</a></li>
+<li><a href="faq.html">FAQ</a></li>
+                    <li><a href="reserva.html">Reservar</a></li>
+                </ul>
+            </div>
         </nav>
-      </div>
-    </header>
-    <main>
-      <section class="reserva-secao">
+    </div>
+</header>
+<main>
+    <section class="reserva-secao">
         <div class="container reserva-grid">
-          <div class="reserva-conteudo">
-            <p class="sobretitulo">Reserva direta</p>
-            <h1>Vagas limitadas. Reserve hoje e evite imprevistos.</h1>
-            <p>
-              Entre em contato com a recepção para consultar disponibilidade,
-              valor atualizado, configuração das camas e estacionamento.
-            </p>
-            <div class="reserva-acoes">
-              <a
-                class="btn btn-primario"
-                href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A."
-                target="_blank"
-                rel="noopener noreferrer"
-                >Reservar pelo WhatsApp</a
-              ><a class="btn btn-secundario" href="tel:+5518998141622"
-                >Ligar&nbsp;para&nbsp;(18)&nbsp;99814&#8209;1622</a
-              >
+            <div class="reserva-conteudo">
+                <p class="sobretitulo">Reserva direta</p>
+                <h1>Vagas limitadas. Reserve hoje e evite imprevistos.</h1>
+                <p>Entre em contato com a recepção para consultar disponibilidade, valor atualizado, configuração das camas e estacionamento.</p>
+                <div class="reserva-acoes">
+                    <a class="btn btn-primario" href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A." target="_blank" rel="noopener noreferrer">Reservar pelo WhatsApp</a>
+                    <a class="btn btn-secundario" href="tel:+5518998141622">Ligar para (18) 99814-1622</a>
+                </div>
+                <ul class="reserva-informacoes">
+                    <li>Recepção 24 horas</li>
+                    <li>Café da manhã servido das 6h às 9h</li>
+                    <li>Wi-Fi gratuito</li>
+                    <li>Estacionamento gratuito mediante disponibilidade</li>
+                </ul>
             </div>
-            <ul class="reserva-informacoes">
-              <li>Recepção 24 horas</li>
-              <li>Café da manhã servido das 6h às 9h</li>
-              <li>Wi-Fi gratuito</li>
-              <li>Estacionamento gratuito mediante disponibilidade</li>
-            </ul>
-          </div>
-          <div class="imagem-placeholder imagem-placeholder-grande">
-            <span class="reserva-imagens">
-              <figure class="reserva-foto">
-                <img
-                  class="reserva-imagem reserva-imagem-principal"
-                  src="img/hotel/recepção-1.jpg"
-                  alt="Recepção do Huesca Palace Hotel"
-                />
-                <img
-                  class="reserva-imagem reserva-imagem-hover"
-                  src="img/hotel/recepção.jpg"
-                  alt="Outra vista da recepção do Huesca Palace Hotel"
-                />
-              </figure>
-              <figure class="reserva-foto">
-                <img
-                  class="reserva-imagem reserva-imagem-principal"
-                  src="img/hotel/descanso.jpg"
-                  alt="Área de descanso do Huesca Palace Hotel"
-                />
-                <img
-                  class="reserva-imagem reserva-imagem-hover"
-                  src="img/hotel/sala.jpg"
-                  alt="Sala de convivência do Huesca Palace Hotel"
-                />
-              </figure>
-            </span>
-          </div>
+
+            <div class="reserva-galeria" aria-label="Ambientes do Hotel Palace Huesca">
+                <figure class="reserva-galeria__foto">
+                    <img
+                        class="reserva-galeria__imagem reserva-galeria__imagem--principal"
+                        src="img/hotel/recepção-1.jpg"
+                        alt="Recepção do Hotel Palace Huesca"
+                    >
+                    <img
+                        class="reserva-galeria__imagem reserva-galeria__imagem--hover"
+                        src="img/hotel/recepção.jpg"
+                        alt="Outra vista da recepção do Hotel Palace Huesca"
+                    >
+                </figure>
+
+                <figure class="reserva-galeria__foto">
+                    <img
+                        class="reserva-galeria__imagem reserva-galeria__imagem--principal"
+                        src="img/hotel/descanso.jpg"
+                        alt="Área de descanso do Hotel Palace Huesca"
+                    >
+                    <img
+                        class="reserva-galeria__imagem reserva-galeria__imagem--hover"
+                        src="img/hotel/sala.jpg"
+                        alt="Sala de convivência do Hotel Palace Huesca"
+                    >
+                </figure>
+            </div>
         </div>
-      </section>
-    </main>
-    <footer class="site-footer">
-      <section class="container">
+    </section>
+</main>
+<footer class="site-footer">
+    <section class="container">
         <div class="footer-grid">
-          <div class="footer-col">
-            <div class="footer-logo-placeholder">
-              <img src="img/logo-hotel-sem-fundo.png" alt="logo" />
+            <div class="footer-col">
+                <div class="footer-logo-placeholder"><img src="img/logo-hotel-sem-fundo.png" alt="logo"></div>
+                <p class="missao">Hospitalidade, simplicidade, limpeza e localização estratégica no centro de Presidente Prudente.</p>
+                <div class="social-links" aria-label="Redes sociais">
+                    <a class="social-link" href="https://www.facebook.com/profile.php?id=61592348461438" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Facebook do Hotel Palace Huesca">
+                        <img src="img/facebook.png" alt="" aria-hidden="true">
+                    </a>
+                    <a class="social-link" href="https://www.instagram.com/hotelhuesca/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Instagram do Hotel Palace Huesca">
+                        <img src="img/instagram.png" alt="" aria-hidden="true">
+                    </a>
+                    <a class="social-link" href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A." target="_blank" rel="noopener noreferrer" aria-label="Falar com o Hotel Palace Huesca pelo WhatsApp">
+                        <img src="img/whatsapp.png" alt="" aria-hidden="true">
+                    </a>
+                </div>
             </div>
-            <p class="missao">
-              Hospitalidade, simplicidade, limpeza e localização estratégica no
-              centro de Presidente Prudente.
-            </p>
-            <div class="social-links" role="group" aria-label="Redes sociais">
-              <a
-                class="social-link"
-                href="https://www.facebook.com/profile.php?id=61592348461438"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Abrir o Facebook do Huesca Palace Hotel"
-              >
-                <img src="img/facebook.png" alt="" aria-hidden="true" />
-              </a>
-              <a
-                class="social-link"
-                href="https://www.instagram.com/hotelhuesca/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Abrir o Instagram do Huesca Palace Hotel"
-              >
-                <img src="img/instagram.png" alt="" aria-hidden="true" />
-              </a>
-              <a
-                class="social-link"
-                href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A."
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Falar com o Huesca Palace Hotel pelo WhatsApp"
-              >
-                <img src="img/whatsapp.png" alt="" aria-hidden="true" />
-              </a>
+            <div class="footer-col">
+                <h2>Navegação</h2>
+                <ul><li><a href="index.html">Nosso Hotel</a></li>
+<li><a href="quartos.html">Quartos</a></li>
+<li><a href="localizacao.html">Localização</a></li>
+<li><a href="sobre.html">Sobre Nós</a></li>
+<li><a href="atendimento.html">Atendimento</a></li>
+<li><a href="faq.html">FAQ</a></li></ul>
             </div>
-          </div>
-          <div class="footer-col">
-            <h2>Navegação</h2>
-            <ul>
-              <li><a href="index.html">Nosso Hotel</a></li>
-              <li><a href="quartos.html">Quartos</a></li>
-              <li><a href="localizacao.html">Localização</a></li>
-              <li><a href="sobre.html">Sobre Nós</a></li>
-              <li><a href="atendimento.html">Atendimento</a></li>
-              <li><a href="faq.html">FAQ</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h2>Contato e endereço</h2>
-            <ul>
-              <li>
-                <a href="tel:+5518998141622">(18)&nbsp;99814&#8209;1622</a>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Reservar pelo WhatsApp</a
-                >
-              </li>
-              <li>
-                Avenida Brasil, nº 550<br />Centro — Presidente Prudente/SP
-              </li>
-              <li>Recepção 24 horas</li>
-            </ul>
-          </div>
+            <div class="footer-col">
+                <h2>Contato e endereço</h2>
+                <ul>
+                    <li><a href="tel:+5518998141622">(18) 99814-1622</a></li>
+                    <li><a href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A." target="_blank" rel="noopener noreferrer">Reservar pelo WhatsApp</a></li>
+                    <li>Avenida Brasil, nº 550<br>Centro — Presidente Prudente/SP</li>
+                    <li>Recepção 24 horas</li>
+                </ul>
+            </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025 Huesca Palace Hotel. Todos os direitos reservados.</p>
-          <p>Huesca Palace Hotel LTDA — CNPJ 55.360.507/0001-48</p>
+            <p>&copy; 2025 Hotel Palace Huesca. Todos os direitos reservados.</p>
+            <p>Huesca Palace Hotel LTDA — CNPJ 55.360.507/0001-48</p>
         </div>
-      </section>
-    </footer>
-    <script src="js/menu.js"></script>
-  </body>
+    </section>
+</footer>
+<script src="js/menu.js"></script>
+</body>
 </html>
