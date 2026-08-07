@@ -332,6 +332,9 @@
     border: 0;
     background: transparent;
 }
+.altura{
+    aspect-ratio: 7 / 5;
+}
 
 .galeria-quarto .imagem-placeholder-detalhe > span {
     display: block;

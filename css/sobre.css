@@ -1,56 +1,449 @@
 .sobre-grid {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   align-items: center;
   gap: 58px;
 }
-.retrato-placeholder {
-  min-height: 480px;
+
+.retrato-hotel {
+  position: relative;
+  z-index: 0;
+  margin: 0;
 }
+
+.retrato-hotel::before {
+  position: absolute;
+  z-index: -1;
+  top: -18px;
+  right: 24px;
+  bottom: 36px;
+  left: -18px;
+  border-radius: 40px;
+  background: var(--cor-primaria-clara);
+  content: "";
+}
+
+.retrato-hotel img {
+  width: 100%;
+  max-height: 590px;
+  border: 3px solid var(--cor-primaria);
+  border-radius: 40px;
+  object-fit: cover;
+  object-position: center 38%;
+  box-shadow: var(--sombra);
+}
+
+.retrato-hotel figcaption {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 14px;
+  background: rgba(6, 39, 68, 0.9);
+  color: #fff;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
 .sobre-conteudo h2 {
-  margin-bottom: 20px;
-  font-size: 2rem;
+  margin-bottom: 22px;
+  font-size: clamp(2rem, 4vw, 2.75rem);
 }
+
 .sobre-conteudo p {
   margin-bottom: 16px;
   color: var(--cor-texto-secundario);
 }
-.valores-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
-}
-.valores-grid article {
-  padding: 26px;
-  border-top: 4px solid var(--cor-primaria);
-  border-radius: var(--raio);
-  background: #fff;
-  box-shadow: 0 8px 22px rgba(9, 52, 94, 0.06);
-}
-.valores-grid h3 {
+
+.sobre-conteudo .sobretitulo {
   margin-bottom: 10px;
   color: var(--cor-primaria);
 }
-.valores-grid p {
+
+.secao-cabecalho > p:last-child {
+  max-width: 680px;
+  margin: 14px auto 0;
+  color: var(--cor-texto-secundario);
+}
+
+.pilares-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+.pilar-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 34px 30px;
+  border-top: 4px solid var(--cor-primaria);
+  border-radius: var(--raio);
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(9, 52, 94, 0.08);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+  will-change: transform;
+}
+
+/* Brilho diagonal que atravessa o card ao passar o mouse. */
+.pilar-card::before {
+  position: absolute;
+  z-index: 0;
+  top: -45%;
+  left: -85%;
+  width: 48%;
+  height: 190%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(159, 201, 234, 0.28),
+    transparent
+  );
+  content: "";
+  pointer-events: none;
+  transform: rotate(12deg);
+  transition: left 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Linha inferior animada, usando a cor principal do site. */
+.pilar-card::after {
+  position: absolute;
+  z-index: 0;
+  right: 30px;
+  bottom: 0;
+  left: 30px;
+  height: 4px;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(90deg, #5c95c4, var(--cor-primaria));
+  content: "";
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pilar-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.pilar-numero {
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  border-radius: 50%;
+  background: var(--cor-primaria-clara);
+  color: var(--cor-primaria);
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: 0 0 0 0 rgba(92, 149, 196, 0);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.45s ease;
+}
+
+.pilar-card h3 {
+  margin-bottom: 14px;
+  color: var(--cor-primaria);
+  font-size: 1.45rem;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.35s ease;
+}
+
+.pilar-card p,
+.lista-valores {
+  margin: 0;
   color: var(--cor-texto-secundario);
   font-size: 0.9rem;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+.pilar-card-destaque {
+  border-top-color: var(--cor-primaria-escura);
+  background: var(--cor-primaria);
+}
+
+.pilar-card-destaque::before {
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+}
+
+.pilar-card-destaque::after {
+  background: linear-gradient(90deg, #9fc9ea, #fff);
+}
+
+.pilar-card-destaque .pilar-numero {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.pilar-card-destaque h3,
+.pilar-card-destaque .lista-valores {
+  color: #fff;
+}
+
+.lista-valores {
+  padding: 0;
+  list-style: none;
+}
+
+.lista-valores li {
+  position: relative;
+  padding-left: 24px;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lista-valores li + li {
+  margin-top: 8px;
+}
+
+.lista-valores li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #9fc9ea;
+  content: "✓";
+  font-weight: 700;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.35s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pilar-card:hover {
+    border-top-color: #5c95c4;
+    box-shadow:
+      0 24px 48px rgba(9, 52, 94, 0.17),
+      0 8px 18px rgba(9, 52, 94, 0.08);
+    transform: translateY(-12px) scale(1.018);
+  }
+
+  .pilar-card:hover::before {
+    left: 135%;
+  }
+
+  .pilar-card:hover::after {
+    transform: scaleX(1);
+  }
+
+  .pilar-card:hover .pilar-numero {
+    background: var(--cor-primaria);
+    color: #fff;
+    box-shadow: 0 9px 20px rgba(9, 52, 94, 0.2);
+    transform: translateY(-4px) rotate(-7deg) scale(1.08);
+  }
+
+  .pilar-card:hover h3 {
+    transform: translateX(6px);
+  }
+
+  .pilar-card:hover p,
+  .pilar-card:hover .lista-valores {
+    transform: translateY(-2px);
+  }
+
+  .pilar-card-destaque:hover {
+    border-top-color: #9fc9ea;
+    background: #0c416f;
+    box-shadow:
+      0 26px 52px rgba(6, 39, 68, 0.28),
+      0 8px 18px rgba(9, 52, 94, 0.14);
+  }
+
+  .pilar-card-destaque:hover .pilar-numero {
+    background: #fff;
+    color: var(--cor-primaria);
+    box-shadow: 0 9px 22px rgba(0, 0, 0, 0.18);
+  }
+
+  .pilar-card-destaque:hover .lista-valores li {
+    transform: translateX(5px);
+  }
+
+  .pilar-card-destaque:hover .lista-valores li::before {
+    color: #fff;
+    transform: scale(1.18);
+  }
+
+  .pilar-card-destaque:hover .lista-valores li:nth-child(2) {
+    transition-delay: 0.025s;
+  }
+
+  .pilar-card-destaque:hover .lista-valores li:nth-child(3) {
+    transition-delay: 0.05s;
+  }
+
+  .pilar-card-destaque:hover .lista-valores li:nth-child(4) {
+    transition-delay: 0.075s;
+  }
+
+  .pilar-card-destaque:hover .lista-valores li:nth-child(5) {
+    transition-delay: 0.1s;
+  }
+
+  .pilar-card-destaque:hover .lista-valores li:nth-child(6) {
+    transition-delay: 0.125s;
+  }
+
+  .pilar-card-destaque:hover .lista-valores li:nth-child(7) {
+    transition-delay: 0.15s;
+  }
+}
+
+.compromisso-secao {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.compromisso-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 42px;
+  padding: 42px 46px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 24px;
+  background: linear-gradient(135deg, #fff, var(--cor-primaria-clara));
+  box-shadow: 0 12px 30px rgba(9, 52, 94, 0.08);
+}
+
+.compromisso-card > div:first-child {
+  max-width: 680px;
+}
+
+.compromisso-card h2 {
+  margin-bottom: 12px;
+  font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+
+.compromisso-card p:last-child {
+  color: var(--cor-texto-secundario);
+}
+
+.compromisso-acoes {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 12px;
+}
+
 @media (max-width: 900px) {
   .sobre-grid {
     grid-template-columns: 1fr;
   }
-  .valores-grid {
+
+  .retrato-hotel {
+    max-width: 650px;
+    margin-inline: auto;
+  }
+
+  .pilares-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  .pilar-card-destaque {
+    grid-column: 1 / -1;
+  }
+
+  .compromisso-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .compromisso-acoes {
+    width: 100%;
+    flex-direction: row;
+  }
 }
+
 @media (max-width: 560px) {
-  .valores-grid {
+  .pilares-grid {
     grid-template-columns: 1fr;
   }
-  .retrato-placeholder {
-    min-height: 320px;
+
+  .pilar-card-destaque {
+    grid-column: auto;
+  }
+
+  .retrato-hotel::before {
+    top: -10px;
+    right: 12px;
+    bottom: 22px;
+    left: -10px;
+    border-radius: 30px;
+  }
+
+  .retrato-hotel img {
+    max-height: 480px;
+    border-radius: 30px;
+  }
+
+  .retrato-hotel figcaption {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+  }
+
+  .pilar-card {
+    padding: 28px 24px;
+  }
+
+  .compromisso-secao {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .compromisso-card {
+    padding: 30px 24px;
+  }
+
+  .compromisso-acoes {
+    flex-direction: column;
+  }
+
+  .compromisso-acoes .btn {
+    width: 100%;
   }
 }
-.borda-img {
-  border-radius: 40px;
+
+@media (prefers-reduced-motion: reduce) {
+  .pilar-card,
+  .pilar-card::before,
+  .pilar-card::after,
+  .pilar-card h3,
+  .pilar-card p,
+  .pilar-numero,
+  .lista-valores,
+  .lista-valores li,
+  .lista-valores li::before,
+  .btn {
+    transition: none !important;
+  }
+
+  .pilar-card:hover {
+    transform: none;
+  }
+
+  .pilar-card:hover::before {
+    left: -85%;
+  }
 }
