@@ -42,7 +42,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/index.css?v=20260731-1" />
-    <link rel="stylesheet" href="css/home.css?v=20260811-1" />
+    <link rel="stylesheet" href="css/home.css?v=20260811-2" />
 
     <style>
       /* Animação dos cards de quartos e troca de imagem no hover */
@@ -151,7 +151,7 @@
     </style>
     <link
       rel="stylesheet"
-      href="css/carrossel-quartos.css?v=20260811-3"
+      href="css/carrossel-quartos.css?v=20260811-4"
     />
     <script src="js/page-reveal.js?v=20260811-1"></script>
     <link rel="stylesheet" href="css/page-reveal.css?v=20260811-1" />
@@ -282,25 +282,89 @@
           <h2 id="titulo-vantagens">Por que escolher o Huesca Palace Hotel?</h2>
         </div>
         <div class="vantagens-grid">
-          <article class="vantagem-card">
+          <article class="vantagem-card" data-vantagem-card>
+            <img
+              class="vantagem-card__foto"
+              id="foto-cafe-da-manha"
+              src="img/vantagens/cafe-da-manha.jpeg"
+              alt="Mesa de café da manhã do Huesca Palace Hotel com pães, frutas e bebidas"
+              loading="lazy"
+              decoding="async"
+            />
             <span class="icone-texto">01</span>
             <h3>Café da manhã incluso</h3>
             <p>Servido diariamente das 6h às 9h.</p>
+            <button
+              class="vantagem-card__toggle"
+              type="button"
+              aria-controls="foto-cafe-da-manha"
+              aria-expanded="false"
+              aria-label="Mostrar foto do café da manhã"
+              hidden
+            ></button>
           </article>
-          <article class="vantagem-card">
+          <article class="vantagem-card" data-vantagem-card>
+            <img
+              class="vantagem-card__foto"
+              id="foto-wifi"
+              src="img/vantagens/wifi-gratuito.jpg"
+              alt="Hóspede utilizando um dispositivo conectado ao Wi-Fi na área de convivência"
+              loading="lazy"
+              decoding="async"
+            />
             <span class="icone-texto">02</span>
             <h3>Wi-Fi gratuito</h3>
             <p>Internet rápida disponível nos quartos.</p>
+            <button
+              class="vantagem-card__toggle"
+              type="button"
+              aria-controls="foto-wifi"
+              aria-expanded="false"
+              aria-label="Mostrar foto do Wi-Fi gratuito"
+              hidden
+            ></button>
           </article>
-          <article class="vantagem-card">
+          <article class="vantagem-card" data-vantagem-card>
+            <img
+              class="vantagem-card__foto vantagem-card__foto--conter"
+              id="foto-estacionamento"
+              src="img/vantagens/estacionamento.png"
+              alt="Estacionamento coberto do Huesca Palace Hotel"
+              loading="lazy"
+              decoding="async"
+            />
             <span class="icone-texto">03</span>
             <h3>Estacionamento coberto</h3>
             <p>Gratuito, mediante consulta de disponibilidade no check-in.</p>
+            <button
+              class="vantagem-card__toggle"
+              type="button"
+              aria-controls="foto-estacionamento"
+              aria-expanded="false"
+              aria-label="Mostrar foto do estacionamento coberto"
+              hidden
+            ></button>
           </article>
-          <article class="vantagem-card">
+          <article class="vantagem-card" data-vantagem-card>
+            <img
+              class="vantagem-card__foto"
+              id="foto-recepcao"
+              src="img/vantagens/recepcao.jpg"
+              alt="Balcão da recepção 24 horas do Huesca Palace Hotel"
+              loading="lazy"
+              decoding="async"
+            />
             <span class="icone-texto">04</span>
             <h3>Recepção 24 horas</h3>
             <p>Check-in noturno e suporte durante toda a estadia.</p>
+            <button
+              class="vantagem-card__toggle"
+              type="button"
+              aria-controls="foto-recepcao"
+              aria-expanded="false"
+              aria-label="Mostrar foto da recepção 24 horas"
+              hidden
+            ></button>
           </article>
         </div>
       </section>
@@ -655,6 +719,7 @@
       </section>
     </footer>
     <script src="js/menu.js?v=20260810-3"></script>
-    <script src="js/carrossel-quartos.js?v=20260811-3"></script>
+    <script src="js/carrossel-quartos.js?v=20260811-4"></script>
+    <script src="js/vantagens-fotos.js?v=20260811-1"></script>
   </body>
 </html>
