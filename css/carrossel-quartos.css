@@ -1,12 +1,15 @@
 /* Carrossel dos seis quartos com ar-condicionado na página inicial. */
 .carrossel-quartos {
+  --carrossel-seta-topo: 120px;
   position: relative;
+  isolation: isolate;
 }
 
 .carrossel-viewport {
   overflow: hidden;
   margin: -16px -8px -26px;
   padding: 16px 8px 26px;
+  touch-action: pan-y pinch-zoom;
 }
 
 .carrossel-trilho {
@@ -43,9 +46,9 @@
 
 .carrossel-seta {
   position: absolute;
-  z-index: 5;
-  top: 50%;
-  display: grid;
+  z-index: 10;
+  top: var(--carrossel-seta-topo);
+  display: none;
   width: 52px;
   height: 52px;
   place-items: center;
@@ -59,12 +62,20 @@
   font: inherit;
   font-size: 2rem;
   line-height: 1;
+  pointer-events: auto;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
   transform: translateY(-50%);
   transition:
     color 0.25s ease,
     background-color 0.25s ease,
     box-shadow 0.25s ease,
     transform 0.25s ease;
+}
+
+.carrossel-quartos.carrossel-ativo .carrossel-seta {
+  display: grid;
 }
 
 .carrossel-seta:hover {
@@ -103,6 +114,10 @@
 }
 
 @media (max-width: 640px) {
+  .carrossel-quartos {
+    --carrossel-seta-topo: 112.5px;
+  }
+
   .carrossel-trilho .card-acomodacao {
     flex-basis: 100%;
   }
