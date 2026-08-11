@@ -1,0 +1,27 @@
+/* Entrada suave compartilhada por todas as paginas.
+   A opacidade so e reduzida quando o JavaScript foi carregado. */
+html.js-page-reveal body {
+  opacity: 0;
+}
+
+html.js-page-reveal.page-reveal-ready body {
+  opacity: 1;
+  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity;
+}
+
+html.js-page-reveal.page-reveal-complete body {
+  opacity: 1;
+  transition: none;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js-page-reveal body,
+  html.js-page-reveal.page-reveal-ready body,
+  html.js-page-reveal.page-reveal-complete body {
+    opacity: 1;
+    transition: none;
+    will-change: auto;
+  }
+}

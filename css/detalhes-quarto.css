@@ -306,8 +306,7 @@
    Proporção de referência:
    1512 / 1080 = 7 / 5
 
-   Cor da borda principal:
-   var(--cor-primaria), já definida em global.css.
+   As três imagens usam o mesmo arredondamento, sem borda colorida.
    ========================================================= */
 
 /*
@@ -371,23 +370,20 @@
 .imagem-principal-detalhe {
     aspect-ratio: 7 / 5;
     min-height: 0;
-    border-radius: 0;
-    overflow: visible;
+    border-radius: 40px;
+    overflow: hidden;
 }
 
 .imagem-principal-detalhe > span {
-    border-radius: 0;
-    overflow: visible;
+    border-radius: 40px;
+    overflow: hidden;
 }
 
-/*
- * A borda fica diretamente no elemento <img>.
- * Não existe padding nem espaço branco entre a borda e a foto.
- */
+/* Mantém a foto principal uniforme com as duas fotos secundárias. */
 .imagem-principal-detalhe img,
 .imagem-principal-detalhe .borda-img {
-    border: 3px solid var(--cor-primaria);
-    border-radius: 0;
+    border: 0;
+    border-radius: 40px;
 }
 
 /* =========================================================

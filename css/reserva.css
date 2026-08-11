@@ -29,13 +29,117 @@
   color: #425466;
   font-size: 0.92rem;
 }
+
+.reserva-imagens {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.reserva-foto {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(9, 52, 94, 0.1);
+  border-radius: 40px;
+  background: #e8edf1;
+  box-shadow: 0 12px 30px rgba(9, 52, 94, 0.1);
+  isolation: isolate;
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 420ms ease,
+    box-shadow 420ms ease;
+}
+
+.reserva-foto::after {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 28%,
+    rgba(255, 255, 255, 0.5) 48%,
+    transparent 68%
+  );
+  content: "";
+  pointer-events: none;
+  transform: translateX(-145%);
+}
+
+.reserva-foto img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition:
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 420ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .reserva-foto:hover {
+    border-color: rgba(9, 52, 94, 0.32);
+    box-shadow:
+      0 24px 48px rgba(9, 52, 94, 0.2),
+      0 0 0 5px rgba(9, 52, 94, 0.05);
+    transform: translateY(-7px);
+  }
+
+  .reserva-foto:hover::after {
+    animation: brilho-foto 850ms ease-out both;
+  }
+
+  .reserva-foto:hover img {
+    filter: saturate(1.06) contrast(1.03);
+    transform: scale(1.075);
+  }
+}
+
+@keyframes brilho-foto {
+  from {
+    transform: translateX(-145%);
+  }
+
+  to {
+    transform: translateX(145%);
+  }
+}
+
 @media (max-width: 850px) {
   .reserva-grid {
     grid-template-columns: 1fr;
+  }
+
+  .reserva-foto {
+    border-radius: 32px;
   }
 }
 @media (max-width: 520px) {
   .reserva-informacoes {
     grid-template-columns: 1fr;
+  }
+
+  .reserva-imagens {
+    gap: 18px;
+  }
+
+  .reserva-foto {
+    border-radius: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reserva-foto,
+  .reserva-foto img {
+    transition: none;
+  }
+
+  .reserva-foto:hover,
+  .reserva-foto:hover img {
+    transform: none;
+  }
+
+  .reserva-foto:hover::after {
+    animation: none;
   }
 }
