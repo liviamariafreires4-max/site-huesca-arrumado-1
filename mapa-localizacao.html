@@ -1,6 +1,19 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
+      <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6GGXHQ95FF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-6GGXHQ95FF');
+        gtag('config', 'AW-17739289358');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mapa dos pontos próximos ao Huesca Palace Hotel</title>
@@ -48,10 +61,28 @@
       }
 
       .leaflet-popup-content {
-        min-width: 190px;
-        margin: 14px 18px;
+        width: 230px !important;
+        margin: 12px;
         color: #172536;
         line-height: 1.45;
+      }
+
+      .popup-local {
+        overflow: hidden;
+        border-radius: 10px;
+        background: #fff;
+      }
+
+      .popup-local img {
+        display: block;
+        width: 100%;
+        height: 120px;
+        border-radius: 9px;
+        object-fit: cover;
+      }
+
+      .popup-local-conteudo {
+        padding: 10px 4px 2px;
       }
 
       .leaflet-popup-content strong {
@@ -67,7 +98,19 @@
         color: #09345e;
         font-weight: 700;
       }
+
+      .mapa-erro {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        place-items: center;
+        padding: 28px;
+        color: #425466;
+        text-align: center;
+      }
     </style>
+    <script src="js/page-reveal.js?v=20260811-1"></script>
+    <link rel="stylesheet" href="css/page-reveal.css?v=20260811-1" />
   </head>
   <body>
     <section
@@ -84,6 +127,14 @@
       (() => {
         "use strict";
 
+        const elementoMapa = document.getElementById("mapa");
+
+        if (typeof window.L === "undefined") {
+          elementoMapa.innerHTML =
+            '<p class="mapa-erro">Não foi possível carregar o mapa. Verifique a conexão com a internet e atualize a página.</p>';
+          return;
+        }
+
         const pontos = [
           {
             nome: "Huesca Palace Hotel",
@@ -91,28 +142,36 @@
             coordenadas: [-22.124364, -51.383925],
             rotulo: "H",
             hotel: true,
-            link: "https://www.google.com/maps/search/?api=1&query=Hotel+Palace+Huesca%2C+Avenida+Brasil%2C+550%2C+Presidente+Prudente%2C+SP",
+            imagem: "img/imagem-principal.jpeg",
+            imagemAlt: "Fachada do Huesca Palace Hotel",
+            link: "localizacao.html",
           },
           {
             nome: "Calçadão e centro comercial",
             endereco: "Rua Tenente Nicolau Maffei — Centro",
             coordenadas: [-22.1235398, -51.3860819],
             rotulo: "1",
-            link: "https://www.google.com/maps/search/?api=1&query=Cal%C3%A7ad%C3%A3o+de+Presidente+Prudente%2C+Rua+Tenente+Nicolau+Maffei%2C+Presidente+Prudente%2C+SP",
+            imagem: "img/cards/calcadao-centro-1.jpg",
+            imagemAlt: "Calçadão e centro comercial de Presidente Prudente",
+            link: "localizacao.html",
           },
           {
             nome: "Praça Nove de Julho",
             endereco: "Centro de Presidente Prudente",
             coordenadas: [-22.1231273, -51.3880659],
             rotulo: "2",
-            link: "https://www.google.com/maps/search/?api=1&query=Pra%C3%A7a+Nove+de+Julho%2C+Presidente+Prudente%2C+SP",
+            imagem: "img/cards/praca-nove-julho-1.jpg",
+            imagemAlt: "Praça Nove de Julho em Presidente Prudente",
+            link: "localizacao.html",
           },
           {
             nome: "Catedral de São Sebastião",
             endereco: "Rua Ribeiro de Barros, nº 1771 — Centro",
             coordenadas: [-22.1226678, -51.3890777],
             rotulo: "3",
-            link: "https://www.google.com/maps/search/?api=1&query=Catedral+de+S%C3%A3o+Sebasti%C3%A3o%2C+Rua+Ribeiro+de+Barros%2C+1771%2C+Presidente+Prudente%2C+SP",
+            imagem: "img/cards/catedral-sao-sebastiao-1.jpg",
+            imagemAlt: "Catedral de São Sebastião em Presidente Prudente",
+            link: "localizacao.html",
           },
         ];
 
@@ -138,18 +197,69 @@
           });
 
           const conteudo = `
-            <strong>${ponto.nome}</strong>
-            <span>${ponto.endereco}</span><br />
-            <a href="${ponto.link}" target="_blank" rel="noopener noreferrer">Abrir no Google Maps</a>
+            <article class="popup-local">
+              <img src="${ponto.imagem}" alt="${ponto.imagemAlt}" />
+              <div class="popup-local-conteudo">
+                <strong>${ponto.nome}</strong>
+                <span>${ponto.endereco}</span><br />
+                <a href="${ponto.link}" target="_top">Ver página de localização</a>
+              </div>
+            </article>
           `;
 
-          L.marker(ponto.coordenadas, {
+          const marcador = L.marker(ponto.coordenadas, {
             icon: icone,
             keyboard: true,
             title: ponto.nome,
           })
             .addTo(mapa)
-            .bindPopup(conteudo);
+            .bindPopup(conteudo, {
+              maxWidth: 254,
+              minWidth: 254,
+            });
+
+          let temporizadorFechamento;
+
+          const cancelarFechamento = () => {
+            window.clearTimeout(temporizadorFechamento);
+          };
+
+          const abrirPopup = () => {
+            cancelarFechamento();
+            marcador.openPopup();
+          };
+
+          const agendarFechamento = () => {
+            cancelarFechamento();
+            temporizadorFechamento = window.setTimeout(() => {
+              const elementoMarcador = marcador.getElement();
+              const elementoPopup = marcador.getPopup().getElement();
+              const marcadorAtivo = elementoMarcador?.matches(":hover, :focus");
+              const popupAtivo = elementoPopup?.matches(":hover, :focus-within");
+
+              if (!marcadorAtivo && !popupAtivo) {
+                marcador.closePopup();
+              }
+            }, 180);
+          };
+
+          marcador.on("mouseover", abrirPopup);
+          marcador.on("mouseout", agendarFechamento);
+          marcador.on("popupopen", () => {
+            const elementoPopup = marcador.getPopup().getElement();
+
+            if (elementoPopup && !elementoPopup.dataset.hoverConfigurado) {
+              elementoPopup.dataset.hoverConfigurado = "true";
+              elementoPopup.addEventListener("mouseenter", cancelarFechamento);
+              elementoPopup.addEventListener("mouseleave", agendarFechamento);
+              elementoPopup.addEventListener("focusin", cancelarFechamento);
+              elementoPopup.addEventListener("focusout", agendarFechamento);
+            }
+          });
+
+          const elementoMarcador = marcador.getElement();
+          elementoMarcador?.addEventListener("focus", abrirPopup);
+          elementoMarcador?.addEventListener("blur", agendarFechamento);
 
           limites.push(ponto.coordenadas);
         });

@@ -1,6 +1,19 @@
 <!doctype html>
 <html lang="pt-br">
   <head>
+      <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6GGXHQ95FF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-6GGXHQ95FF');
+        gtag('config', 'AW-17739289358');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -29,27 +42,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/index.css?v=20260731-1" />
-    <link rel="stylesheet" href="css/home.css?v=20260731-1" />
+    <link rel="stylesheet" href="css/home.css?v=20260811-1" />
 
     <style>
-      /* Imagens principais do hotel */
-      .hero .imagem-placeholder-grande span {
-        display: block;
-        width: 100%;
-        overflow: hidden;
-        border-radius: 40px;
-      }
-
-      .hero .imagem-placeholder-grande span + span {
-        margin-top: 24px;
-      }
-
-      .hero .imagem-placeholder-grande img {
-        width: 100%;
-        border-radius: 40px;
-        object-fit: cover;
-      }
-
       /* Animação dos cards de quartos e troca de imagem no hover */
       .card-acomodacao {
         position: relative;
@@ -154,6 +149,12 @@
         }
       }
     </style>
+    <link
+      rel="stylesheet"
+      href="css/carrossel-quartos.css?v=20260811-2"
+    />
+    <script src="js/page-reveal.js?v=20260811-1"></script>
+    <link rel="stylesheet" href="css/page-reveal.css?v=20260811-1" />
   </head>
   <body>
     <header class="site-header">
@@ -255,11 +256,22 @@
             </div>
           </div>
           <div
-            class="imagem-placeholder imagem-placeholder-grande"
-            role="img"
-            aria-label="Espaço reservado para imagem principal do hotel"
-          > <span><img src="img/imagem-principal.jpeg" alt="fachada do hotel"></span>
-            <span><img src="img/hotel/recepção.jpg" alt="fachada do hotel"></span>
+            class="hero-galeria"
+            role="group"
+            aria-label="Imagens do Huesca Palace Hotel"
+          >
+            <figure class="hero-foto">
+              <img
+                src="img/imagem-principal.jpeg"
+                alt="Fachada do Huesca Palace Hotel"
+              />
+            </figure>
+            <figure class="hero-foto">
+              <img
+                src="img/hotel/recepção.jpg"
+                alt="Recepção e área de espera do Huesca Palace Hotel"
+              />
+            </figure>
           </div>
         </div>
       </section>
@@ -297,7 +309,7 @@
         <div class="container apresentacao-grid">
           <div class="mapa-destaque">
             <iframe
-              src="mapa-localizacao.html"
+              src="mapa-localizacao.html?v=20260811-2"
               title="Mapa com o Huesca Palace Hotel, o Calçadão, a Praça Nove de Julho e a Catedral de São Sebastião"
               loading="lazy"
               allowfullscreen
@@ -340,75 +352,206 @@
             >Ver todos os quartos</a
           >
         </div>
-        <div class="cards-grid cards-grid-3">
-          <article class="card-acomodacao" tabindex="0">
-            <div class="card-imagem-hover">
-              <img
-                class="imagem-principal"
-                src="img/quartos/studio-standard/studio-standard-1.jpg"
-                alt="Quarto Individual — imagem principal"
-              />
-              <img
-                class="imagem-secundaria"
-                src="img/quartos/studio-standard/studio-standard-2.jpg"
-                alt="Quarto Individual — imagem secundária"
-                loading="lazy"
-              />
-            </div>
-            <div class="card-conteudo">
-              <span class="etiqueta">Ar-condicionado</span>
-              <h3>Estúdio Standard</h3>
-              <p>Uma cama de casal acompanhado com Wi-Fi rápido, TV, roupa de cama, toalhas e limpeza diária.</p>
-              <strong class="preco">R$ 190,00</strong>
-            </div>
-          </article>
+        <div
+          class="carrossel-quartos"
+          data-carrossel-quartos
+          role="region"
+          aria-roledescription="carrossel"
+          aria-label="Seis quartos com ar-condicionado"
+        >
+          <div class="carrossel-viewport" data-carrossel-viewport>
+            <div class="carrossel-trilho" data-carrossel-trilho>
+              <a
+                class="card-acomodacao card-acomodacao-link"
+                href="quarto-individual-ar-condicionado.html"
+              >
+                <div class="card-imagem-hover">
+                  <img
+                    class="imagem-principal"
+                    src="img/quartos/quarto-individual-ar/individual-ar-1-t.jpg"
+                    alt="Quarto Individual com uma cama de solteiro"
+                  />
+                  <img
+                    class="imagem-secundaria"
+                    src="img/quartos/quarto-individual-ar/individual-ar-1.jpg"
+                    alt="Outra vista do Quarto Individual com ar-condicionado"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-conteudo">
+                  <span class="etiqueta">Ar-condicionado</span>
+                  <h3>Quarto Individual</h3>
+                  <p>
+                    Acomodação climatizada para uma pessoa, com 1 cama de
+                    solteiro e banheiro privativo.
+                  </p>
+                  <strong class="preco">R$ 190,00</strong>
+                </div>
+              </a>
 
-          <article class="card-acomodacao" tabindex="0">
-            <div class="card-imagem-hover">
-              <img
-                class="imagem-principal"
-                src="img/quartos/duplo-casal-solteiro/duplo-casal-e-solteiro-ar-1.jpg"
-                alt="Quarto Duplo — imagem principal"
-              />
-              <img
-                class="imagem-secundaria"
-                src="img/quartos/duplo-casal-solteiro/duplo-casal-e-solteiro-ar-2.jpg"
-                alt="Quarto Duplo — imagem secundária"
-                loading="lazy"
-              />
-            </div>
-            <div class="card-conteudo">
-              <span class="etiqueta">Ar-condicionado</span>
-              <h3>Quarto Duplo</h3>
-              <p>
-                Ambiente confortável com 1 cama de casal e 1 cama de solteiro
-                para casais e viajantes a trabalho.
-              </p>
-              <strong class="preco">R$ 230,00</strong>
-            </div>
-          </article>
+              <a
+                class="card-acomodacao card-acomodacao-link"
+                href="estudio-standard.html"
+              >
+                <div class="card-imagem-hover">
+                  <img
+                    class="imagem-principal"
+                    src="img/quartos/studio-standard/studio-standard-1.jpg"
+                    alt="Estúdio Standard com uma cama de casal"
+                    loading="lazy"
+                  />
+                  <img
+                    class="imagem-secundaria"
+                    src="img/quartos/studio-standard/studio-standard-2.jpg"
+                    alt="Outra vista do Estúdio Standard com ar-condicionado"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-conteudo">
+                  <span class="etiqueta">Ar-condicionado</span>
+                  <h3>Estúdio Standard</h3>
+                  <p>
+                    Suíte climatizada com 1 cama de casal, banheiro privativo e
+                    espaço reservado para refeições.
+                  </p>
+                  <strong class="preco">R$ 190,00</strong>
+                </div>
+              </a>
 
-          <article class="card-acomodacao" tabindex="0">
-            <div class="card-imagem-hover">
-              <img
-                class="imagem-principal"
-                src="img/quartos/quarto-triplo/quarto-triplo-1.jpg"
-                alt="Quarto Triplo — imagem principal"
-              />
-              <img
-                class="imagem-secundaria"
-                src="img/quartos/quarto-triplo/quarto-triplo-3.jpg"
-                alt="Quarto Triplo — imagem secundária"
-                loading="lazy"
-              />
+              <a
+                class="card-acomodacao card-acomodacao-link"
+                href="quarto-duplo-ar-condicionado-solteiro.html"
+              >
+                <div class="card-imagem-hover">
+                  <img
+                    class="imagem-principal"
+                    src="img/quartos/quarto-duplo-2-solteiro/duplo-2-solteiro-1.jpg"
+                    alt="Quarto Duplo Solteiro com duas camas de solteiro"
+                    loading="lazy"
+                  />
+                  <img
+                    class="imagem-secundaria"
+                    src="img/quartos/quarto-duplo-2-solteiro/duplo-2-solteiro-2.jpg"
+                    alt="Outra vista do Quarto Duplo Solteiro"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-conteudo">
+                  <span class="etiqueta">Ar-condicionado</span>
+                  <h3>Quarto Duplo Solteiro</h3>
+                  <p>
+                    Opção climatizada para duas pessoas, com 2 camas de
+                    solteiro e banheiro privativo.
+                  </p>
+                  <strong class="preco">R$ 230,00</strong>
+                </div>
+              </a>
+
+              <a
+                class="card-acomodacao card-acomodacao-link"
+                href="quarto-duplo-ar-condicionado.html"
+              >
+                <div class="card-imagem-hover">
+                  <img
+                    class="imagem-principal"
+                    src="img/quartos/duplo-casal-solteiro/duplo-casal-e-solteiro-ar-1.jpg"
+                    alt="Quarto Duplo com uma cama de casal e uma de solteiro"
+                    loading="lazy"
+                  />
+                  <img
+                    class="imagem-secundaria"
+                    src="img/quartos/duplo-casal-solteiro/duplo-casal-e-solteiro-ar-2.jpg"
+                    alt="Outra vista do Quarto Duplo com ar-condicionado"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-conteudo">
+                  <span class="etiqueta">Ar-condicionado</span>
+                  <h3>Quarto Duplo</h3>
+                  <p>
+                    Ambiente climatizado com 1 cama de casal e 1 cama de
+                    solteiro, com capacidade para até três hóspedes.
+                  </p>
+                  <strong class="preco">R$ 230,00</strong>
+                </div>
+              </a>
+
+              <a
+                class="card-acomodacao card-acomodacao-link"
+                href="quarto-triplo-ar-condicionado.html"
+              >
+                <div class="card-imagem-hover">
+                  <img
+                    class="imagem-principal"
+                    src="img/quartos/quarto-triplo/quarto-triplo-1.jpg"
+                    alt="Quarto Triplo com três camas de solteiro"
+                    loading="lazy"
+                  />
+                  <img
+                    class="imagem-secundaria"
+                    src="img/quartos/quarto-triplo/quarto-triplo-3.jpg"
+                    alt="Outra vista do Quarto Triplo com ar-condicionado"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-conteudo">
+                  <span class="etiqueta">Ar-condicionado</span>
+                  <h3>Quarto Triplo</h3>
+                  <p>
+                    Acomodação climatizada com 3 camas de solteiro para
+                    famílias, amigos ou colegas de viagem.
+                  </p>
+                  <strong class="preco">R$ 340,00</strong>
+                </div>
+              </a>
+
+              <a
+                class="card-acomodacao card-acomodacao-link"
+                href="quarto-quadruplo-ar-condicionado.html"
+              >
+                <div class="card-imagem-hover">
+                  <img
+                    class="imagem-principal"
+                    src="img/quartos/quarto-quadruplo/quadruplo-1.jpg"
+                    alt="Quarto Quádruplo com quatro camas de solteiro"
+                    loading="lazy"
+                  />
+                  <img
+                    class="imagem-secundaria"
+                    src="img/quartos/quarto-quadruplo/quadruplo-2.jpg"
+                    alt="Outra vista do Quarto Quádruplo com ar-condicionado"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-conteudo">
+                  <span class="etiqueta">Ar-condicionado</span>
+                  <h3>Quarto Quádruplo</h3>
+                  <p>
+                    Quarto climatizado com 4 camas de solteiro, indicado para
+                    famílias e grupos de até quatro pessoas.
+                  </p>
+                  <strong class="preco">R$ 420,00</strong>
+                </div>
+              </a>
             </div>
-            <div class="card-conteudo">
-              <span class="etiqueta">Ar-condicionado</span>
-              <h3>Quarto Triplo</h3>
-              <p>Opção para até três hóspedes, com comodidades essenciais.</p>
-              <strong class="preco">R$ 340,00</strong>
-            </div>
-          </article>
+          </div>
+
+          <button
+            class="carrossel-seta carrossel-seta-anterior"
+            type="button"
+            data-carrossel-anterior
+            aria-label="Mostrar os quartos anteriores"
+          >
+            <span aria-hidden="true">‹</span>
+          </button>
+          <button
+            class="carrossel-seta carrossel-seta-proxima"
+            type="button"
+            data-carrossel-proximo
+            aria-label="Mostrar os próximos quartos"
+          >
+            <span aria-hidden="true">›</span>
+          </button>
         </div>
       </section>
 
@@ -424,7 +567,7 @@
           </div>
           <a
             class="btn btn-claro"
-            href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A."
+            href="https://wa.me/5518998141622?text=Ol%C3%A1%21%20Vim%20pelo%20Google%20e%20gostaria%20de%20consultar%20disponibilidade%20no%20Hotel%20Palace%20Huesca.%20Entrada%3A%20__/__/__.%20Sa%C3%ADda%3A%20__/__/__.%20N%C3%BAmero%20de%20h%C3%B3spedes%3A%20__"
             target="_blank"
             rel="noopener noreferrer"
             >Falar no WhatsApp</a
@@ -464,7 +607,7 @@
               </a>
               <a
                 class="social-link"
-                href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A."
+                href="https://wa.me/5518998141622?text=Ol%C3%A1%21%20Vim%20pelo%20Google%20e%20gostaria%20de%20consultar%20disponibilidade%20no%20Hotel%20Palace%20Huesca.%20Entrada%3A%20__/__/__.%20Sa%C3%ADda%3A%20__/__/__.%20N%C3%BAmero%20de%20h%C3%B3spedes%3A%20__"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Falar com o Huesca Palace Hotel pelo WhatsApp"
@@ -492,7 +635,7 @@
               </li>
               <li>
                 <a
-                  href="https://wa.me/5518998141622?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20reserva%20%F0%9F%98%8A."
+                  href="https://wa.me/5518998141622?text=Ol%C3%A1%21%20Vim%20pelo%20Google%20e%20gostaria%20de%20consultar%20disponibilidade%20no%20Hotel%20Palace%20Huesca.%20Entrada%3A%20__/__/__.%20Sa%C3%ADda%3A%20__/__/__.%20N%C3%BAmero%20de%20h%C3%B3spedes%3A%20__"
                   target="_blank"
                   rel="noopener noreferrer"
                   >Reservar pelo WhatsApp</a
@@ -511,7 +654,7 @@
         </div>
       </section>
     </footer>
-    <script src="js/menu.js"></script>
+    <script src="js/menu.js?v=20260810-3"></script>
+    <script src="js/carrossel-quartos.js?v=20260811-2"></script>
   </body>
 </html>
-
