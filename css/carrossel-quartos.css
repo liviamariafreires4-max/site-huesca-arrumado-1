@@ -78,6 +78,12 @@
     transform 0.25s ease;
 }
 
+.carrossel-seta > span {
+  display: block;
+  line-height: 1;
+  transform: translateY(-2px);
+}
+
 .carrossel-seta:hover {
   background: var(--cor-primaria);
   box-shadow: 0 14px 34px rgba(9, 52, 94, 0.25);
@@ -113,7 +119,12 @@
   }
 }
 
-@media (max-width: 767px) {
+/*
+  Em celulares e tablets, os controles ficam fora dos cards para nunca
+  encobrir a fotografia ou o texto. O layout lateral fica reservado ao
+  desktop, a partir de 1200 px.
+*/
+@media (max-width: 1199px) {
   .carrossel-quartos {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 48px 48px minmax(0, 1fr);
@@ -125,10 +136,6 @@
     grid-row: 1;
     grid-column: 1 / -1;
     width: 100%;
-  }
-
-  .carrossel-trilho .card-acomodacao {
-    flex-basis: 100%;
   }
 
   .carrossel-seta {
@@ -155,6 +162,12 @@
 
   .carrossel-seta:active {
     transform: scale(0.96);
+  }
+}
+
+@media (max-width: 767px) {
+  .carrossel-trilho .card-acomodacao {
+    flex-basis: 100%;
   }
 }
 
