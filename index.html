@@ -151,7 +151,7 @@
     </style>
     <link
       rel="stylesheet"
-      href="css/carrossel-quartos.css?v=20260811-4"
+      href="css/carrossel-quartos.css?v=20260811-5"
     />
     <script src="js/page-reveal.js?v=20260811-1"></script>
     <link rel="stylesheet" href="css/page-reveal.css?v=20260811-1" />
@@ -719,7 +719,154 @@
       </section>
     </footer>
     <script src="js/menu.js?v=20260810-3"></script>
-    <script src="js/carrossel-quartos.js?v=20260811-4"></script>
+    <script src="js/carrossel-quartos.js?v=20260811-5"></script>
+    <script>
+      /*
+       * Proteção do carrossel para hospedagens estáticas: se o arquivo externo
+       * não chegar ao GitHub Pages ou falhar ao carregar, as setas continuam
+       * visíveis e este código garante a navegação.
+       */
+      (function () {
+        "use strict";
+
+        function iniciarCarrosselDeSeguranca() {
+          var carrosseis = document.querySelectorAll(
+            "[data-carrossel-quartos]"
+          );
+
+          for (var indiceCarrossel = 0; indiceCarrossel < carrosseis.length; indiceCarrossel += 1) {
+            (function (carrossel) {
+              if (carrossel.classList.contains("carrossel-ativo")) {
+                return;
+              }
+
+              var viewport = carrossel.querySelector(
+                "[data-carrossel-viewport]"
+              );
+              var trilho = carrossel.querySelector("[data-carrossel-trilho]");
+              var anterior = carrossel.querySelector(
+                "[data-carrossel-anterior]"
+              );
+              var proxima = carrossel.querySelector(
+                "[data-carrossel-proximo]"
+              );
+              var cards = trilho
+                ? trilho.querySelectorAll(".card-acomodacao-link")
+                : [];
+
+              if (!viewport || !trilho || !anterior || !proxima || cards.length < 2) {
+                return;
+              }
+
+              var paginaAtual = 0;
+              var quantidadeVisivel = 1;
+              var temporizadorRedimensionamento = 0;
+
+              function obterQuantidadeVisivel() {
+                var largura =
+                  window.innerWidth || document.documentElement.clientWidth;
+
+                if (largura <= 767) {
+                  return 1;
+                }
+
+                if (largura <= 900) {
+                  return 2;
+                }
+
+                return 3;
+              }
+
+              function atualizarAcessibilidade(inicio, fim) {
+                for (var indice = 0; indice < cards.length; indice += 1) {
+                  if (indice >= inicio && indice < fim) {
+                    cards[indice].removeAttribute("aria-hidden");
+                    cards[indice].removeAttribute("tabindex");
+                  } else {
+                    cards[indice].setAttribute("aria-hidden", "true");
+                    cards[indice].setAttribute("tabindex", "-1");
+                  }
+                }
+              }
+
+              function atualizarCarrossel() {
+                quantidadeVisivel = obterQuantidadeVisivel();
+
+                var totalPaginas = Math.max(
+                  1,
+                  Math.ceil(cards.length / quantidadeVisivel)
+                );
+                paginaAtual =
+                  ((paginaAtual % totalPaginas) + totalPaginas) % totalPaginas;
+
+                var larguraCard = cards[0].getBoundingClientRect().width;
+                var estilos = window.getComputedStyle(trilho);
+                var espacamento =
+                  parseFloat(estilos.columnGap || estilos.gap || "0") || 0;
+                var primeiroIndice = paginaAtual * quantidadeVisivel;
+                var ultimoIndice = Math.min(
+                  primeiroIndice + quantidadeVisivel,
+                  cards.length
+                );
+                var larguraVisivel =
+                  quantidadeVisivel * larguraCard +
+                  Math.max(0, quantidadeVisivel - 1) * espacamento;
+                var deslocamentoMaximo = Math.max(
+                  0,
+                  trilho.scrollWidth - larguraVisivel
+                );
+                var deslocamento = Math.min(
+                  primeiroIndice * (larguraCard + espacamento),
+                  deslocamentoMaximo
+                );
+
+                trilho.style.transform =
+                  "translate3d(-" + deslocamento + "px, 0, 0)";
+                atualizarAcessibilidade(primeiroIndice, ultimoIndice);
+              }
+
+              function mover(direcao) {
+                paginaAtual += direcao;
+                atualizarCarrossel();
+              }
+
+              anterior.addEventListener("click", function (evento) {
+                evento.preventDefault();
+                evento.stopPropagation();
+                mover(-1);
+              });
+
+              proxima.addEventListener("click", function (evento) {
+                evento.preventDefault();
+                evento.stopPropagation();
+                mover(1);
+              });
+
+              window.addEventListener("resize", function () {
+                window.clearTimeout(temporizadorRedimensionamento);
+                temporizadorRedimensionamento = window.setTimeout(function () {
+                  paginaAtual = 0;
+                  atualizarCarrossel();
+                }, 100);
+              });
+
+              carrossel.classList.add("carrossel-ativo");
+              atualizarCarrossel();
+            })(carrosseis[indiceCarrossel]);
+          }
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener(
+            "DOMContentLoaded",
+            iniciarCarrosselDeSeguranca,
+            { once: true }
+          );
+        } else {
+          iniciarCarrosselDeSeguranca();
+        }
+      })();
+    </script>
     <script src="js/vantagens-fotos.js?v=20260811-1"></script>
   </body>
 </html>
