@@ -1,6 +1,12 @@
 /* Carrossel dos seis quartos com ar-condicionado na página inicial. */
 .carrossel-quartos {
   --carrossel-seta-topo: 120px;
+  /*
+    Cria um novo contexto de formatação para impedir que a margem negativa
+    do viewport altere o ponto de referência vertical das setas. Como a foto
+    mede 240 px no desktop, 120 px passa a ser exatamente o centro real dela.
+  */
+  display: flow-root;
   position: relative;
   isolation: isolate;
 }
