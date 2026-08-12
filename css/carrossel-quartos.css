@@ -1,11 +1,8 @@
 /* Carrossel dos seis quartos com ar-condicionado na página inicial. */
 .carrossel-quartos {
-  --carrossel-seta-topo: 120px;
-  /*
-    Cria um novo contexto de formatação para impedir que a margem negativa
-    do viewport altere o ponto de referência vertical das setas. Como a foto
-    mede 240 px no desktop, 120 px passa a ser exatamente o centro real dela.
-  */
+  /* A mesma medida controla a altura da foto e a linha dos controles no
+     desktop. Assim, as setas ficam exatamente na divisão entre foto e texto. */
+  --carrossel-altura-foto: 240px;
   display: flow-root;
   position: relative;
   isolation: isolate;
@@ -53,7 +50,7 @@
 .carrossel-seta {
   position: absolute;
   z-index: 10;
-  top: var(--carrossel-seta-topo);
+  top: var(--carrossel-altura-foto);
   display: grid;
   width: 52px;
   height: 52px;
@@ -109,16 +106,6 @@
   right: -26px;
 }
 
-@media (max-width: 1280px) {
-  .carrossel-seta-anterior {
-    left: 6px;
-  }
-
-  .carrossel-seta-proxima {
-    right: 6px;
-  }
-}
-
 @media (max-width: 900px) {
   .carrossel-trilho .card-acomodacao {
     flex-basis: calc((100% - 24px) / 2);
@@ -168,6 +155,25 @@
 
   .carrossel-seta:active {
     transform: scale(0.96);
+  }
+}
+
+/*
+  No desktop, a altura real da foto e a posição vertical das setas usam a
+  mesma variável. O centro de cada botão coincide com a borda inferior da
+  imagem, enquanto metade do botão permanece para fora do card.
+*/
+@media (min-width: 1200px) {
+  .carrossel-quartos .card-imagem-hover {
+    height: var(--carrossel-altura-foto);
+  }
+
+  .carrossel-seta-anterior {
+    left: -26px;
+  }
+
+  .carrossel-seta-proxima {
+    right: -26px;
   }
 }
 

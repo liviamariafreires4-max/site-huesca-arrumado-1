@@ -1,26 +1,28 @@
-/* Entrada suave compartilhada por todas as paginas.
-   A opacidade so e reduzida quando o JavaScript foi carregado. */
-html.js-page-reveal body {
+/*
+  Revelação progressiva compartilhada por todas as páginas.
+  Cada seção surge somente quando entra na área visível durante a rolagem.
+  Se o JavaScript não carregar, nenhuma regra abaixo esconde o conteúdo.
+*/
+html.js-scroll-reveal .scroll-reveal-item {
   opacity: 0;
+  transform: translate3d(0, 34px, 0);
+  transition:
+    opacity 720ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 }
 
-html.js-page-reveal.page-reveal-ready body {
+html.js-scroll-reveal .scroll-reveal-item.scroll-reveal-visible,
+html.js-scroll-reveal.scroll-reveal-fallback .scroll-reveal-item {
   opacity: 1;
-  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity;
-}
-
-html.js-page-reveal.page-reveal-complete body {
-  opacity: 1;
-  transition: none;
-  will-change: auto;
+  transform: translate3d(0, 0, 0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html.js-page-reveal body,
-  html.js-page-reveal.page-reveal-ready body,
-  html.js-page-reveal.page-reveal-complete body {
+  html.js-scroll-reveal .scroll-reveal-item,
+  html.js-scroll-reveal .scroll-reveal-item.scroll-reveal-visible {
     opacity: 1;
+    transform: none;
     transition: none;
     will-change: auto;
   }

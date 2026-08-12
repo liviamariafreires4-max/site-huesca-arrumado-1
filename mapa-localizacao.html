@@ -1,19 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
-      <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6GGXHQ95FF"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-        gtag('config', 'G-6GGXHQ95FF');
-        gtag('config', 'AW-17739289358');
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mapa dos pontos próximos ao Huesca Palace Hotel</title>
@@ -109,8 +96,8 @@
         text-align: center;
       }
     </style>
-    <script src="js/page-reveal.js?v=20260811-1"></script>
-    <link rel="stylesheet" href="css/page-reveal.css?v=20260811-1" />
+    <script defer src="js/page-reveal.js?v=20260812-4"></script>
+    <link rel="stylesheet" href="css/page-reveal.css?v=20260812-4" />
   </head>
   <body>
     <section
@@ -179,11 +166,38 @@
           scrollWheelZoom: false,
         });
 
-        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          attribution:
-            '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>',
-          maxZoom: 19,
-        }).addTo(mapa);
+        const atribuicaoMapa =
+          '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>';
+
+        /*
+          O servidor padrão de imagens do OpenStreetMap exige um Referer HTTP.
+          Ao abrir o HTML por file://, o navegador não envia esse cabeçalho e
+          os blocos do mapa são recusados. Nesse caso usamos um mapa vetorial
+          local, mantendo os mesmos marcadores e pop-ups. No GitHub Pages, o
+          mapa interativo normal continua sendo carregado.
+        */
+        if (window.location.protocol === "file:") {
+          const limitesMapaLocal = [
+            [-22.128, -51.392],
+            [-22.118, -51.379],
+          ];
+
+          L.imageOverlay(
+            "img/mapa-centro-prudente.svg",
+            limitesMapaLocal,
+            {
+              alt: "Mapa do centro de Presidente Prudente",
+              attribution: atribuicaoMapa,
+            },
+          ).addTo(mapa);
+
+          mapa.setMaxBounds(limitesMapaLocal);
+        } else {
+          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: atribuicaoMapa,
+            maxZoom: 19,
+          }).addTo(mapa);
+        }
 
         const limites = [];
 

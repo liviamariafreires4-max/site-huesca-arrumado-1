@@ -16,6 +16,7 @@
     const cards = Array.from(
       trilho.querySelectorAll(".card-acomodacao-link"),
     );
+    const imagemReferencia = cards[0]?.querySelector(".card-imagem-hover");
 
     if (cards.length < 2) {
       return;
@@ -26,6 +27,61 @@
     let quadroRedimensionamento = 0;
     let toqueInicial = null;
     let bloquearCliqueDoCard = false;
+
+    /*
+     * Mede a posição sem considerar transformações visuais dos cards. Isso
+     * mantém as setas no centro da foto mesmo durante hover, animações, zoom
+     * do navegador ou alterações responsivas de altura.
+     */
+    const obterCentroVerticalRelativo = (elemento, ancestral) => {
+      let topo = 0;
+      let atual = elemento;
+
+      while (atual && atual !== ancestral) {
+        topo += atual.offsetTop;
+        const proximoPai = atual.offsetParent;
+
+        /* offsetTop parte da área interna do elemento pai; a borda precisa
+           ser somada para coincidir com o centro visual da fotografia. */
+        if (proximoPai && proximoPai !== ancestral) {
+          topo += proximoPai.clientTop;
+        }
+
+        atual = proximoPai;
+      }
+
+      if (atual === ancestral) {
+        return topo + elemento.offsetHeight / 2;
+      }
+
+      const retanguloElemento = elemento.getBoundingClientRect();
+      const retanguloAncestral = ancestral.getBoundingClientRect();
+
+      return (
+        retanguloElemento.top -
+        retanguloAncestral.top +
+        retanguloElemento.height / 2
+      );
+    };
+
+    const atualizarCentroDasSetas = () => {
+      if (
+        !imagemReferencia ||
+        !window.matchMedia("(min-width: 1200px)").matches
+      ) {
+        carrossel.style.removeProperty("--carrossel-seta-topo");
+        return;
+      }
+
+      const centro = obterCentroVerticalRelativo(imagemReferencia, carrossel);
+
+      if (Number.isFinite(centro) && centro > 0) {
+        carrossel.style.setProperty(
+          "--carrossel-seta-topo",
+          `${centro.toFixed(2)}px`,
+        );
+      }
+    };
 
     const obterQuantidadeVisivel = () => {
       // No celular, cada navegação corresponde sempre a exatamente um quarto.
@@ -92,6 +148,7 @@
 
       trilho.style.transform = `translate3d(-${deslocamento}px, 0, 0)`;
       atualizarAcessibilidade(primeiroIndice, ultimoIndice);
+      atualizarCentroDasSetas();
     };
 
     const irParaPagina = (direcao) => {
@@ -198,6 +255,23 @@
         quadroRedimensionamento = 0;
       });
     });
+
+    if (imagemReferencia && "ResizeObserver" in window) {
+      const observadorImagem = new ResizeObserver(atualizarCentroDasSetas);
+      observadorImagem.observe(imagemReferencia);
+    }
+
+    if (imagemReferencia) {
+      imagemReferencia.querySelectorAll("img").forEach((imagem) => {
+        if (!imagem.complete) {
+          imagem.addEventListener("load", atualizarCentroDasSetas, {
+            once: true,
+          });
+        }
+      });
+    }
+
+    window.addEventListener("load", atualizarCentroDasSetas, { once: true });
 
     quantidadeVisivel = obterQuantidadeVisivel();
     carrossel.classList.add("carrossel-ativo");

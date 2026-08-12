@@ -2,47 +2,109 @@
   "use strict";
 
   var raiz = document.documentElement;
-  var animacaoConcluida = false;
-  var temporizadorDeSeguranca;
+  var iniciado = false;
 
-  raiz.classList.add("js-page-reveal");
-
-  function concluirAnimacao() {
-    if (animacaoConcluida) return;
-
-    animacaoConcluida = true;
-    window.clearTimeout(temporizadorDeSeguranca);
-    raiz.classList.add("page-reveal-complete");
+  function finalizarElemento(elemento) {
+    elemento.classList.remove(
+      "scroll-reveal-item",
+      "scroll-reveal-visible",
+    );
+    elemento.classList.add("scroll-reveal-shown");
   }
 
-  function revelarPagina() {
-    if (raiz.classList.contains("page-reveal-ready")) return;
+  function mostrarElemento(elemento, observador, semAnimacao) {
+    if (elemento.classList.contains("scroll-reveal-shown")) return;
 
-    window.requestAnimationFrame(function () {
-      window.requestAnimationFrame(function () {
-        raiz.classList.add("page-reveal-ready");
+    elemento.classList.add("scroll-reveal-visible");
 
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          concluirAnimacao();
-          return;
-        }
+    if (observador) {
+      observador.unobserve(elemento);
+    }
 
-        window.setTimeout(concluirAnimacao, 850);
+    if (semAnimacao) {
+      finalizarElemento(elemento);
+      return;
+    }
+
+    window.setTimeout(function () {
+      finalizarElemento(elemento);
+    }, 760);
+  }
+
+  function iniciarRevelacao() {
+    if (iniciado) return;
+    iniciado = true;
+
+    try {
+      /* Seções e blocos longos recebem o efeito individualmente. Assim, uma
+         página extensa não aparece inteira antes de o usuário chegar nela. */
+      var seletores = [
+        "main > section",
+        "main section.bloco-detalhe",
+        "main .quarto-card",
+        "main .faq-item",
+        "main .local-card",
+        "main .vantagem-card",
+        "main .pilar-card",
+        "main .compromisso-card",
+        "main .contato-box",
+        "main .reserva-informacoes",
+        "main .reserva-galeria",
+      ].join(",");
+
+      var elementos = Array.prototype.slice.call(
+        document.querySelectorAll(seletores),
+      );
+
+      if (elementos.length === 0) return;
+
+      elementos.forEach(function (elemento) {
+        elemento.classList.add("scroll-reveal-item");
       });
-    });
+
+      raiz.classList.add("js-scroll-reveal");
+
+      var reduzirMovimento = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      if (reduzirMovimento || !("IntersectionObserver" in window)) {
+        elementos.forEach(function (elemento) {
+          mostrarElemento(elemento, null, true);
+        });
+        return;
+      }
+
+      var observador = new IntersectionObserver(
+        function (entradas) {
+          entradas.forEach(function (entrada) {
+            if (entrada.isIntersecting) {
+              mostrarElemento(entrada.target, observador, false);
+            }
+          });
+        },
+        {
+          /* Um limite baixo também funciona em blocos com várias telas de
+             altura, como a listagem completa de quartos no celular. */
+          threshold: 0.01,
+          rootMargin: "0px 0px -8% 0px",
+        },
+      );
+
+      elementos.forEach(function (elemento) {
+        observador.observe(elemento);
+      });
+    } catch (erro) {
+      /* Falha segura: o conteúdo nunca permanece invisível. */
+      raiz.classList.add("scroll-reveal-fallback");
+    }
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", revelarPagina, { once: true });
+    document.addEventListener("DOMContentLoaded", iniciarRevelacao, {
+      once: true,
+    });
   } else {
-    revelarPagina();
+    iniciarRevelacao();
   }
-
-  window.addEventListener("pageshow", revelarPagina);
-
-  /* Evita que uma falha inesperada mantenha a página transparente. */
-  temporizadorDeSeguranca = window.setTimeout(function () {
-    raiz.classList.add("page-reveal-ready");
-    concluirAnimacao();
-  }, 1800);
 })();
